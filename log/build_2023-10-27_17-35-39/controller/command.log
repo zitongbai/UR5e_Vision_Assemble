@@ -1,0 +1,6 @@
+Invoking command in '/home/xiaobaige/UR5_Vision_Assemble/build/controller': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/xiaobaige/UR5_Vision_Assemble/src/controller -DCMAKE_INSTALL_PREFIX=/home/xiaobaige/UR5_Vision_Assemble/install/controller
+Invoked command in '/home/xiaobaige/UR5_Vision_Assemble/build/controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/xiaobaige/UR5_Vision_Assemble/src/controller -DCMAKE_INSTALL_PREFIX=/home/xiaobaige/UR5_Vision_Assemble/install/controller
+Invoking command in '/home/xiaobaige/UR5_Vision_Assemble/build/controller': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/xiaobaige/UR5_Vision_Assemble/build/controller -- -j24 -l24
+Invoked command in '/home/xiaobaige/UR5_Vision_Assemble/build/controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/xiaobaige/UR5_Vision_Assemble/build/controller -- -j24 -l24
+Invoking command in '/home/xiaobaige/UR5_Vision_Assemble/build/controller': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/xiaobaige/UR5_Vision_Assemble/build/controller
+Invoked command in '/home/xiaobaige/UR5_Vision_Assemble/build/controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/xiaobaige/UR5_Vision_Assemble/build/controller

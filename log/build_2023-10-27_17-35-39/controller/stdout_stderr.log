@@ -1,0 +1,45 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.0.3 (/opt/ros/iron/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Found ament_lint_auto: 0.14.2 (/opt/ros/iron/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/xiaobaige/UR5_Vision_Assemble/src/controller/include>
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/xiaobaige/UR5_Vision_Assemble/build/controller
+[ 50%] [32mBuilding CXX object CMakeFiles/ctrl_main.dir/src/ctrl_main.cpp.o[0m
+[100%] [32m[1mLinking CXX executable ctrl_main[0m
+[100%] Built target ctrl_main
+-- Install configuration: ""
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/lib/controller/ctrl_main
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/ament_index/resource_index/package_run_dependencies/controller
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/ament_index/resource_index/parent_prefix_path/controller
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/environment/ament_prefix_path.sh
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/environment/ament_prefix_path.dsv
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/environment/path.sh
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/environment/path.dsv
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/local_setup.bash
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/local_setup.sh
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/local_setup.zsh
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/local_setup.dsv
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/package.dsv
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/ament_index/resource_index/packages/controller
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/cmake/controllerConfig.cmake
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/cmake/controllerConfig-version.cmake
+-- Installing: /home/xiaobaige/UR5_Vision_Assemble/install/controller/share/controller/package.xml
