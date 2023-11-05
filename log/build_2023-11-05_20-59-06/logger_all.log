@@ -1,0 +1,228 @@
+[0.878s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.878s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=24, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7fb8921d6980>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fb8921d6290>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fb8921d6290>>, mixin_verb=('build',))
+[0.909s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.909s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.909s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.909s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.909s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.909s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.909s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/xiaobaige/UR5e_Vision_Assemble'
+[0.909s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.909s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.909s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.909s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.909s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.909s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.909s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.909s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.909s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extensions ['ignore', 'ignore_ament_install']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extension 'ignore'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extension 'ignore_ament_install'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extensions ['colcon_pkg']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extension 'colcon_pkg'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extensions ['colcon_meta']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extension 'colcon_meta'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extensions ['ros']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extension 'ros'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extensions ['cmake', 'python']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extension 'cmake'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extension 'python'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extensions ['python_setup_py']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper) by extension 'python_setup_py'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/Universal_Robots_ROS2_Description) by extensions ['ignore', 'ignore_ament_install']
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/Universal_Robots_ROS2_Description) by extension 'ignore'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/Universal_Robots_ROS2_Description) by extension 'ignore_ament_install'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/Universal_Robots_ROS2_Description) by extensions ['colcon_pkg']
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/Universal_Robots_ROS2_Description) by extension 'colcon_pkg'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/Universal_Robots_ROS2_Description) by extensions ['colcon_meta']
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/Universal_Robots_ROS2_Description) by extension 'colcon_meta'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/Universal_Robots_ROS2_Description) by extensions ['ros']
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/Universal_Robots_ROS2_Description) by extension 'ros'
+[0.921s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ur5e_gripper/Universal_Robots_ROS2_Description' with type 'ros.ament_cmake' and name 'ur_description'
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/robotiq_description) by extensions ['ignore', 'ignore_ament_install']
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/robotiq_description) by extension 'ignore'
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/robotiq_description) by extension 'ignore_ament_install'
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/robotiq_description) by extensions ['colcon_pkg']
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/robotiq_description) by extension 'colcon_pkg'
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/robotiq_description) by extensions ['colcon_meta']
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/robotiq_description) by extension 'colcon_meta'
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/robotiq_description) by extensions ['ros']
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_gripper/robotiq_description) by extension 'ros'
+[0.922s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ur5e_gripper/robotiq_description' with type 'ros.ament_cmake' and name 'robotiq_description'
+[0.922s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.922s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.922s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.922s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.922s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.983s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.984s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.994s] WARNING:colcon.colcon_core.prefix_path.colcon:The path '/home/xiaobaige/ros2_ws/install' in the environment variable COLCON_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/xiaobaige/ros2_ws/install/ur5e_gripper_moveit_config' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/xiaobaige/ros2_ws/install/ur5e_gripper_description' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/xiaobaige/ros2_ws/install/ur_description' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/xiaobaige/ros2_ws/install/robotiq_2f_85_gripper_gazebo' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/xiaobaige/ros2_ws/install/robotiq_2f_85_gripper_description' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/xiaobaige/ros2_ws/install/ur5e_gripper_moveit_config' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/xiaobaige/ros2_ws/install/ur5e_gripper_description' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/xiaobaige/ros2_ws/install/ur_description' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/xiaobaige/ros2_ws/install/robotiq_2f_85_gripper_gazebo' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.994s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/xiaobaige/ros2_ws/install/robotiq_2f_85_gripper_description' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[1.004s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/xiaobaige/UR5e_Vision_Assemble/install
+[1.015s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 387 installed packages in /opt/ros/humble
+[1.016s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.085s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_args' from command line to 'None'
+[1.085s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_target' from command line to 'None'
+[1.085s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.085s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_clean_cache' from command line to 'False'
+[1.085s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_clean_first' from command line to 'False'
+[1.085s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'cmake_force_configure' from command line to 'False'
+[1.085s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'ament_cmake_args' from command line to 'None'
+[1.085s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'catkin_cmake_args' from command line to 'None'
+[1.085s] Level 5:colcon.colcon_core.verb:set package 'robotiq_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.085s] DEBUG:colcon.colcon_core.verb:Building package 'robotiq_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description', 'merge_install': False, 'path': '/home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/robotiq_description', 'symlink_install': False, 'test_result_base': None}
+[1.095s] Level 5:colcon.colcon_core.verb:set package 'ur_description' build argument 'cmake_args' from command line to 'None'
+[1.095s] Level 5:colcon.colcon_core.verb:set package 'ur_description' build argument 'cmake_target' from command line to 'None'
+[1.095s] Level 5:colcon.colcon_core.verb:set package 'ur_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.095s] Level 5:colcon.colcon_core.verb:set package 'ur_description' build argument 'cmake_clean_cache' from command line to 'False'
+[1.095s] Level 5:colcon.colcon_core.verb:set package 'ur_description' build argument 'cmake_clean_first' from command line to 'False'
+[1.095s] Level 5:colcon.colcon_core.verb:set package 'ur_description' build argument 'cmake_force_configure' from command line to 'False'
+[1.095s] Level 5:colcon.colcon_core.verb:set package 'ur_description' build argument 'ament_cmake_args' from command line to 'None'
+[1.095s] Level 5:colcon.colcon_core.verb:set package 'ur_description' build argument 'catkin_cmake_args' from command line to 'None'
+[1.095s] Level 5:colcon.colcon_core.verb:set package 'ur_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.095s] DEBUG:colcon.colcon_core.verb:Building package 'ur_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/xiaobaige/UR5e_Vision_Assemble/build/ur_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description', 'merge_install': False, 'path': '/home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/Universal_Robots_ROS2_Description', 'symlink_install': False, 'test_result_base': None}
+[1.104s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.115s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.115s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/robotiq_description' with build type 'ament_cmake'
+[1.115s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/robotiq_description'
+[1.126s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.126s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.126s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.157s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/Universal_Robots_ROS2_Description' with build type 'ament_cmake'
+[1.157s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/Universal_Robots_ROS2_Description'
+[1.167s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.167s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.201s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description -- -j24 -l24
+[1.204s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/ur_description -- -j24 -l24
+[1.225s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/ur_description -- -j24 -l24
+[1.249s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/ur_description
+[1.250s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description -- -j24 -l24
+[1.263s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_description)
+[1.268s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/ur_description
+[1.297s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description' for CMake module files
+[1.297s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description' for CMake config files
+[1.297s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_description', 'cmake_prefix_path')
+[1.307s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/hook/cmake_prefix_path.ps1'
+[1.308s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/hook/cmake_prefix_path.dsv'
+[1.308s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/hook/cmake_prefix_path.sh'
+[1.308s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/bin'
+[1.308s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/lib/pkgconfig/ur_description.pc'
+[1.309s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/lib/python3.10/site-packages'
+[1.309s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/bin'
+[1.319s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.ps1'
+[1.319s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.dsv'
+[1.320s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.sh'
+[1.320s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.bash'
+[1.320s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.zsh'
+[1.321s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/colcon-core/packages/ur_description)
+[1.322s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description
+[1.341s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_description)
+[1.351s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description' for CMake module files
+[1.351s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description' for CMake config files
+[1.351s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_description', 'cmake_prefix_path')
+[1.361s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/hook/cmake_prefix_path.ps1'
+[1.361s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/hook/cmake_prefix_path.dsv'
+[1.361s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/hook/cmake_prefix_path.sh'
+[1.361s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/bin'
+[1.361s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/lib/pkgconfig/ur_description.pc'
+[1.362s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/lib/python3.10/site-packages'
+[1.362s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/bin'
+[1.371s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.ps1'
+[1.371s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.dsv'
+[1.371s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.sh'
+[1.371s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.bash'
+[1.372s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/ur_description/package.zsh'
+[1.372s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description/share/colcon-core/packages/ur_description)
+[1.372s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robotiq_description)
+[1.372s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description
+[1.382s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description' for CMake module files
+[1.382s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description' for CMake config files
+[1.383s] Level 1:colcon.colcon_core.shell:create_environment_hook('robotiq_description', 'cmake_prefix_path')
+[1.393s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/hook/cmake_prefix_path.ps1'
+[1.393s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/hook/cmake_prefix_path.dsv'
+[1.393s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/hook/cmake_prefix_path.sh'
+[1.394s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/lib'
+[1.394s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/bin'
+[1.394s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/lib/pkgconfig/robotiq_description.pc'
+[1.394s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/lib/python3.10/site-packages'
+[1.394s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/bin'
+[1.404s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.ps1'
+[1.404s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.dsv'
+[1.404s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.sh'
+[1.405s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.bash'
+[1.405s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.zsh'
+[1.405s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/colcon-core/packages/robotiq_description)
+[1.429s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robotiq_description)
+[1.440s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description' for CMake module files
+[1.440s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description' for CMake config files
+[1.440s] Level 1:colcon.colcon_core.shell:create_environment_hook('robotiq_description', 'cmake_prefix_path')
+[1.458s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/hook/cmake_prefix_path.ps1'
+[1.458s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/hook/cmake_prefix_path.dsv'
+[1.459s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/hook/cmake_prefix_path.sh'
+[1.459s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/lib'
+[1.459s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/bin'
+[1.459s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/lib/pkgconfig/robotiq_description.pc'
+[1.459s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/lib/python3.10/site-packages'
+[1.459s] Level 1:colcon.colcon_core.environment:checking '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/bin'
+[1.470s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.ps1'
+[1.470s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.dsv'
+[1.470s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.sh'
+[1.470s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.bash'
+[1.471s] INFO:colcon.colcon_core.shell:Creating package script '/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.zsh'
+[1.471s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/colcon-core/packages/robotiq_description)
+[1.471s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.471s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.471s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.471s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.483s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.483s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.483s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.490s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.499s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/xiaobaige/UR5e_Vision_Assemble/install/local_setup.ps1'
+[1.500s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/xiaobaige/UR5e_Vision_Assemble/install/_local_setup_util_ps1.py'
+[1.500s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/xiaobaige/UR5e_Vision_Assemble/install/setup.ps1'
+[1.509s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/xiaobaige/UR5e_Vision_Assemble/install/local_setup.sh'
+[1.509s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/xiaobaige/UR5e_Vision_Assemble/install/_local_setup_util_sh.py'
+[1.509s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/xiaobaige/UR5e_Vision_Assemble/install/setup.sh'
+[1.518s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/xiaobaige/UR5e_Vision_Assemble/install/local_setup.bash'
+[1.518s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/xiaobaige/UR5e_Vision_Assemble/install/setup.bash'
+[1.528s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/xiaobaige/UR5e_Vision_Assemble/install/local_setup.zsh'
+[1.528s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/xiaobaige/UR5e_Vision_Assemble/install/setup.zsh'

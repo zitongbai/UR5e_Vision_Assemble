@@ -1,0 +1,1 @@
+/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description/ament_cmake_core/ur5e_gripper_descriptionConfig.cmake

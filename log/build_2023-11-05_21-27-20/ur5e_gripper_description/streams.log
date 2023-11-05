@@ -1,0 +1,50 @@
+[0.037s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/ur5e_gripper_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description
+[0.091s] -- The C compiler identification is GNU 11.4.0
+[0.128s] -- The CXX compiler identification is GNU 11.4.0
+[0.133s] -- Detecting C compiler ABI info
+[0.174s] -- Detecting C compiler ABI info - done
+[0.179s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.179s] -- Detecting C compile features
+[0.179s] -- Detecting C compile features - done
+[0.181s] -- Detecting CXX compiler ABI info
+[0.229s] -- Detecting CXX compiler ABI info - done
+[0.234s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.234s] -- Detecting CXX compile features
+[0.234s] -- Detecting CXX compile features - done
+[0.237s] -- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.345s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.383s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.401s] -- Found ament_lint_auto: 0.12.8 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.450s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.450s] -- Added test 'lint_cmake' to check CMake code style
+[0.451s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.451s] -- Added test 'xmllint' to check XML markup files
+[0.452s] -- Configuring done
+[0.453s] -- Generating done
+[0.454s] -- Build files have been written to: /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description
+[0.456s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/ur5e_gripper_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description
+[0.457s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description -- -j24 -l24
+[0.479s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description -- -j24 -l24
+[0.491s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description
+[0.496s] -- Install configuration: ""
+[0.496s] -- Execute custom install script
+[0.496s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/config/ur5e_gripper_controllers.yaml
+[0.501s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/launch/view_ur5e_gripper.launch.py
+[0.506s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/urdf/ur5e_gripper.urdf.xacro
+[0.511s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/rviz/view_ur5e_gripper.rviz
+[0.515s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ament_index/resource_index/package_run_dependencies/ur5e_gripper_description
+[0.520s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ament_index/resource_index/parent_prefix_path/ur5e_gripper_description
+[0.525s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/ament_prefix_path.sh
+[0.530s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/ament_prefix_path.dsv
+[0.535s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/path.sh
+[0.540s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/path.dsv
+[0.544s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.bash
+[0.549s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.sh
+[0.553s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.zsh
+[0.558s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.dsv
+[0.563s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/package.dsv
+[0.567s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ament_index/resource_index/packages/ur5e_gripper_description
+[0.572s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/cmake/ur5e_gripper_descriptionConfig.cmake
+[0.576s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/cmake/ur5e_gripper_descriptionConfig-version.cmake
+[0.581s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/package.xml
+[0.586s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description
