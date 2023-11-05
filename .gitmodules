@@ -1,0 +1,4 @@
+[submodule "src/ur5e_gripper/Universal_Robots_ROS2_Description"]
+	path = src/ur5e_gripper/Universal_Robots_ROS2_Description
+	url = git@github.com:zitongbai/Universal_Robots_ROS2_Description.git
+	branch = humble
