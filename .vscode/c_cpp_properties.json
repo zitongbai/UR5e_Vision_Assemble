@@ -6,8 +6,8 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "/opt/ros/iron/include/**",
-        "/home/xiaobaige/UR5_Vision_Assemble/src/controller/include/**",
+        "${workspaceFolder}/**",
+        "/opt/ros/humble/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",
