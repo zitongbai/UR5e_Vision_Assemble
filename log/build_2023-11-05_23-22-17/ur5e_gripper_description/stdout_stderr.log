@@ -1,0 +1,24 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/config/ur5e_gripper_controllers.yaml
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/launch/gazebo_ur5e_gripper.launch.py
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/launch/view_ur5e_gripper.launch.py
+-- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/urdf/initial_positions.yaml.bak
+-- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/urdf/ur5e_gripper.urdf
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/urdf/ur5e_gripper.urdf.xacro
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/rviz/view_ur5e_gripper.rviz
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ament_index/resource_index/package_run_dependencies/ur5e_gripper_description
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ament_index/resource_index/parent_prefix_path/ur5e_gripper_description
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/path.sh
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/path.dsv
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.bash
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.sh
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.zsh
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.dsv
+-- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/package.dsv
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ament_index/resource_index/packages/ur5e_gripper_description
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/cmake/ur5e_gripper_descriptionConfig.cmake
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/cmake/ur5e_gripper_descriptionConfig-version.cmake
+-- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/package.xml

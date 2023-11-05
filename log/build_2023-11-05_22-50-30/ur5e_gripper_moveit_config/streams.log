@@ -1,0 +1,46 @@
+[0.037s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_moveit_config': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_moveit_config -- -j24 -l24
+[0.050s] -- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.139s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.182s] -- Configuring done
+[0.184s] -- Generating done
+[0.184s] -- Build files have been written to: /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_moveit_config
+[0.197s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_moveit_config' returned '0': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_moveit_config -- -j24 -l24
+[0.223s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_moveit_config': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_moveit_config
+[0.232s] -- Install configuration: ""
+[0.233s] -- Execute custom install script
+[0.233s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ament_index/resource_index/package_run_dependencies/ur5e_gripper_moveit_config
+[0.233s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ament_index/resource_index/parent_prefix_path/ur5e_gripper_moveit_config
+[0.233s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/environment/ament_prefix_path.sh
+[0.233s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/environment/ament_prefix_path.dsv
+[0.233s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/environment/path.sh
+[0.234s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/environment/path.dsv
+[0.234s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/local_setup.bash
+[0.234s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/local_setup.sh
+[0.234s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/local_setup.zsh
+[0.234s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/local_setup.dsv
+[0.234s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/package.dsv
+[0.243s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ament_index/resource_index/packages/ur5e_gripper_moveit_config
+[0.244s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/cmake/ur5e_gripper_moveit_configConfig.cmake
+[0.244s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/cmake/ur5e_gripper_moveit_configConfig-version.cmake
+[0.244s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/package.xml
+[0.245s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/launch/demo.launch.py
+[0.245s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/launch/move_group.launch.py
+[0.245s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/launch/moveit_rviz.launch.py
+[0.245s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/launch/rsp.launch.py
+[0.245s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/launch/setup_assistant.launch.py
+[0.245s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/launch/spawn_controllers.launch.py
+[0.246s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/launch/static_virtual_joint_tfs.launch.py
+[0.246s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/launch/warehouse_db.launch.py
+[0.246s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/initial_positions.yaml
+[0.246s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/joint_limits.yaml
+[0.246s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/kinematics.yaml
+[0.246s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/moveit.rviz
+[0.246s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/moveit_controllers.yaml
+[0.247s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/pilz_cartesian_limits.yaml
+[0.247s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/ros2_controllers.yaml
+[0.247s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/sensors_3d.yaml
+[0.257s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/ur5e_gripper.ros2_control.xacro
+[0.257s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/ur5e_gripper.srdf
+[0.258s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/config/ur5e_gripper.urdf.xacro
+[0.258s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config/share/ur5e_gripper_moveit_config/.setup_assistant
+[0.261s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_moveit_config' returned '0': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_moveit_config

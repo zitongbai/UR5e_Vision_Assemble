@@ -1,0 +1,39 @@
+[0.037s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake /home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/ur5e_gripper_description -DCMAKE_INSTALL_PREFIX=/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description
+[0.044s] -- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.134s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.139s] -- Found ament_lint_auto: 0.12.8 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.180s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.181s] -- Added test 'lint_cmake' to check CMake code style
+[0.181s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.181s] -- Added test 'xmllint' to check XML markup files
+[0.182s] -- Configuring done
+[0.183s] -- Generating done
+[0.184s] -- Build files have been written to: /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description
+[0.185s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description' returned '0': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake /home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/ur5e_gripper_description -DCMAKE_INSTALL_PREFIX=/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description
+[0.186s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description -- -j24 -l24
+[0.212s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description' returned '0': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description -- -j24 -l24
+[0.243s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description
+[0.253s] -- Install configuration: ""
+[0.254s] -- Execute custom install script
+[0.254s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/config/ur5e_gripper_controllers.yaml
+[0.254s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/launch/gazebo_ur5e_gripper.launch.py
+[0.254s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/launch/view_ur5e_gripper.launch.py
+[0.255s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/urdf/initial_positions.yaml
+[0.265s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/urdf/ur5e_gripper.urdf.xacro
+[0.265s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/rviz/view_ur5e_gripper.rviz
+[0.265s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ament_index/resource_index/package_run_dependencies/ur5e_gripper_description
+[0.265s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ament_index/resource_index/parent_prefix_path/ur5e_gripper_description
+[0.266s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/ament_prefix_path.sh
+[0.266s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/ament_prefix_path.dsv
+[0.266s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/path.sh
+[0.266s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/environment/path.dsv
+[0.266s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.bash
+[0.266s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.sh
+[0.266s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.zsh
+[0.267s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/local_setup.dsv
+[0.267s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/package.dsv
+[0.274s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ament_index/resource_index/packages/ur5e_gripper_description
+[0.274s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/cmake/ur5e_gripper_descriptionConfig.cmake
+[0.274s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/cmake/ur5e_gripper_descriptionConfig-version.cmake
+[0.274s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description/share/ur5e_gripper_description/package.xml
+[0.276s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description' returned '0': CMAKE_PREFIX_PATH=/home/xiaobaige/UR5e_Vision_Assemble/install/ur_description:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_moveit_config:/home/xiaobaige/UR5e_Vision_Assemble/install/ur5e_gripper_description:/home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description:/home/xiaobaige/UR5e_Vision_Assemble/install/controller:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/ur5e_gripper_description
