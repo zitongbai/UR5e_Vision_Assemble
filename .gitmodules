@@ -1,4 +1,0 @@
-[submodule "src/Universal_Robots_ROS2_Description"]
-	path = src/Universal_Robots_ROS2_Description
-	url = git@github.com:zitongbai/Universal_Robots_ROS2_Description.git
-	branch = humble
