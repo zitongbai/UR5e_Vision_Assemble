@@ -1,0 +1,61 @@
+[0.049s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description -- -j24 -l24
+[0.075s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description -- -j24 -l24
+[0.115s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description
+[0.125s] -- Install configuration: ""
+[0.126s] -- Execute custom install script
+[0.126s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/config/robotiq_controllers.yaml
+[0.126s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/launch/gazebo_gripper.launch.py
+[0.139s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/launch/view_gripper.launch.py
+[0.140s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_140/robotiq_2f_140_base_link.stl
+[0.140s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_140/robotiq_2f_140_coupling.stl
+[0.140s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_140/robotiq_2f_140_inner_finger.stl
+[0.140s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_140/robotiq_2f_140_inner_knuckle.stl
+[0.141s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_140/robotiq_2f_140_outer_finger.stl
+[0.141s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_140/robotiq_2f_140_outer_knuckle.stl
+[0.141s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/left_finger.stl
+[0.141s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/left_finger_tip.stl
+[0.141s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/left_inner_knuckle.stl
+[0.141s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/left_knuckle.stl
+[0.141s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/right_finger.stl
+[0.141s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/right_finger_tip.stl
+[0.142s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/right_inner_knuckle.stl
+[0.142s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/right_knuckle.stl
+[0.142s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/robotiq_base.stl
+[0.142s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/ur_to_robotiq_adapter.stl
+[0.142s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_140/robotiq_2f_140_base_link.stl
+[0.142s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_140/robotiq_2f_140_coupling.stl
+[0.142s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_140/robotiq_2f_140_inner_finger.stl
+[0.142s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_140/robotiq_2f_140_inner_knuckle.stl
+[0.143s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_140/robotiq_2f_140_outer_finger.stl
+[0.143s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_140/robotiq_2f_140_outer_knuckle.stl
+[0.143s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/left_finger.dae
+[0.143s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/left_finger_tip.dae
+[0.143s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/left_inner_knuckle.dae
+[0.143s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/left_knuckle.dae
+[0.143s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/right_finger.dae
+[0.144s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/right_finger_tip.dae
+[0.144s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/right_inner_knuckle.dae
+[0.144s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/right_knuckle.dae
+[0.144s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/robotiq_base.dae
+[0.144s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/ur_to_robotiq_adapter.dae
+[0.145s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/rviz/view_gripper.rviz
+[0.145s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/urdf/2f_85.ros2_control.xacro
+[0.145s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/urdf/robotiq_2f_85_gripper.urdf.xacro
+[0.145s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/urdf/robotiq_2f_85_macro.urdf.xacro
+[0.145s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/urdf/test.urdf
+[0.146s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/ament_index/resource_index/package_run_dependencies/robotiq_description
+[0.146s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/ament_index/resource_index/parent_prefix_path/robotiq_description
+[0.146s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/environment/ament_prefix_path.sh
+[0.146s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/environment/ament_prefix_path.dsv
+[0.147s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/environment/path.sh
+[0.147s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/environment/path.dsv
+[0.147s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/local_setup.bash
+[0.147s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/local_setup.sh
+[0.147s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/local_setup.zsh
+[0.148s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/local_setup.dsv
+[0.148s] -- Symlinking: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.dsv
+[0.158s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/ament_index/resource_index/packages/robotiq_description
+[0.158s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/cmake/robotiq_descriptionConfig.cmake
+[0.158s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/cmake/robotiq_descriptionConfig-version.cmake
+[0.158s] -- Up-to-date symlink: /home/xiaobaige/UR5e_Vision_Assemble/install/robotiq_description/share/robotiq_description/package.xml
+[0.159s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description

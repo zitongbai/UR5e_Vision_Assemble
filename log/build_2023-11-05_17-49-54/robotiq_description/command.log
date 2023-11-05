@@ -1,0 +1,2 @@
+Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description -- -j24 -l24
+Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description -- -j24 -l24

@@ -1,0 +1,14 @@
+[0.046s] Invoking command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description -- -j24 -l24
+[0.062s] -- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.157s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.162s] -- Configuring incomplete, errors occurred!
+[0.162s] See also "/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description/CMakeFiles/CMakeOutput.log".
+[0.162s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:77 (message):
+[0.162s]   ament_target_dependencies() the passed package name 'rclcpp' was not found
+[0.162s]   before
+[0.162s] Call Stack (most recent call first):
+[0.162s]   CMakeLists.txt:25 (ament_target_dependencies)
+[0.162s] 
+[0.162s] [0m
+[0.163s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[0.165s] Invoked command in '/home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/xiaobaige/UR5e_Vision_Assemble/build/robotiq_description -- -j24 -l24
