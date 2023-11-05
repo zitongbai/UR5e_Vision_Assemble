@@ -10,7 +10,7 @@ int main(int argc, char * argv[]){
     rclcpp::init(argc, argv);
     auto node = rclcpp::Node::make_shared("test_gripper_in_gazebo");
 
-    auto publisher = node->create_publisher<std_msgs::msg::Float64MultiArray>("/gripper_controller/commands", 10);
+    auto publisher = node->create_publisher<std_msgs::msg::Float64MultiArray>("/robotiq_gripper_controller/commands", 10);
 
     RCLCPP_INFO(node->get_logger(), "node created");
 
