@@ -1,1 +1,0 @@
-/home/xiaobaige/UR5e_Vision_Assemble/build/ur_description/ament_cmake_core/ur_descriptionConfig-version.cmake

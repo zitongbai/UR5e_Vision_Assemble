@@ -1,1 +1,0 @@
-/home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/ur5e_gripper_description/launch/view_ur5e_gripper.launch.py

@@ -1,1 +1,0 @@
-/home/xiaobaige/UR5e_Vision_Assemble/src/ur5e_gripper/robotiq_description/launch/view_gripper.launch.py
