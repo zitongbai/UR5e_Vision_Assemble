@@ -68,16 +68,16 @@ def generate_launch_description():
         ],
     )
 
-    robotiq_gripper_controller_spawner = launch_ros.actions.Node(
+    gripper_controller_spawner = launch_ros.actions.Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["robotiq_gripper_controller", "-c", "/controller_manager"],
+        arguments=["gripper_controller", "-c", "/controller_manager"],
     )
 
-    ur5e_joint_controller_spawner = launch_ros.actions.Node(
+    ur5e_arm_controller_spawner = launch_ros.actions.Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
+        arguments=["ur5e_arm_controller", "-c", "/controller_manager"],
     )
 
     return LaunchDescription([
@@ -97,6 +97,6 @@ def generate_launch_description():
         node_robot_state_publisher,
         spawn_entity,
         joint_state_broadcaster_spawner,
-        robotiq_gripper_controller_spawner,
-        ur5e_joint_controller_spawner
+        gripper_controller_spawner,
+        ur5e_arm_controller_spawner
     ])
