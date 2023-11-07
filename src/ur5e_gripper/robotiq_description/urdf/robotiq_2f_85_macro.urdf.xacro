@@ -279,5 +279,27 @@
             <origin xyz="-0.00563134 0.0 0.04718515" rpy="0 0 0" />
             <mimic joint="${prefix}robotiq_85_left_knuckle_joint" />
         </joint>
+        <!-- https://github.com/ros-controls/gazebo_ros2_control/issues/173 -->
+        <link name="dummy_child"/>
+        <joint name="${prefix}robotiq_85_right_knuckle_joint_mimic" type="fixed">
+            <parent link="${prefix}robotiq_85_base_link" />
+            <child link="dummy_child" />
+        </joint>
+        <joint name="${prefix}robotiq_85_left_inner_knuckle_joint_mimic" type="fixed">
+            <parent link="${prefix}robotiq_85_base_link" />
+            <child link="dummy_child" />
+        </joint>
+        <joint name="${prefix}robotiq_85_right_inner_knuckle_joint_mimic" type="fixed">
+            <parent link="${prefix}robotiq_85_base_link" />
+            <child link="dummy_child" />
+        </joint>
+        <joint name="${prefix}robotiq_85_left_finger_tip_joint_mimic" type="fixed">
+            <parent link="${prefix}robotiq_85_base_link" />
+            <child link="dummy_child" />
+        </joint>
+        <joint name="${prefix}robotiq_85_right_finger_tip_joint_mimic" type="fixed">
+            <parent link="${prefix}robotiq_85_base_link" />
+            <child link="dummy_child" />
+        </joint>
     </xacro:macro>
 </robot>

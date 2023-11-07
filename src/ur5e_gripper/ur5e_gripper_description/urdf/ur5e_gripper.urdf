@@ -59,7 +59,7 @@
           this location. Nor can they rely on the existence of the macro.
   -->
   <!-- create link fixed to the "world" -->
-  <link name="base_link0"/>
+  <link name="world"/>
   <ros2_control name="ur" type="system">
     <hardware>
       <plugin>gazebo_ros2_control/GazeboSystem</plugin>
@@ -302,7 +302,7 @@
   <!-- base_joint fixes base_link to the environment -->
   <joint name="base_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="base_link0"/>
+    <parent link="world"/>
     <child link="base_link"/>
   </joint>
   <!-- joints - main serial chain -->
@@ -694,6 +694,27 @@
     <axis xyz="0 -1 0"/>
     <origin rpy="0 0 0" xyz="-0.00563134 0.0 0.04718515"/>
     <mimic joint="robotiq_85_left_knuckle_joint"/>
+  </joint>
+  <link name="dummy_child"/>
+  <joint name="robotiq_85_right_knuckle_joint_mimic" type="continuous">
+    <parent link="robotiq_85_base_link"/>
+    <child link="dummy_child"/>
+  </joint>
+  <joint name="robotiq_85_left_inner_knuckle_joint_mimic" type="continuous">
+    <parent link="robotiq_85_base_link"/>
+    <child link="dummy_child"/>
+  </joint>
+  <joint name="robotiq_85_right_inner_knuckle_joint_mimic" type="continuous">
+    <parent link="robotiq_85_base_link"/>
+    <child link="dummy_child"/>
+  </joint>
+  <joint name="robotiq_85_left_finger_tip_joint_mimic" type="continuous">
+    <parent link="robotiq_85_base_link"/>
+    <child link="dummy_child"/>
+  </joint>
+  <joint name="robotiq_85_right_finger_tip_joint_mimic" type="continuous">
+    <parent link="robotiq_85_base_link"/>
+    <child link="dummy_child"/>
   </joint>
   <!-- Gazebo plugins -->
   <gazebo>
