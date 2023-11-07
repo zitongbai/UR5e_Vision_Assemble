@@ -37,33 +37,28 @@ from launch_ros.substitutions import FindPackageShare
 
 def launch_setup(context, *args, **kwargs):
 
-    # General arguments
-    prefix = LaunchConfiguration("prefix")
-
-    ur5e_gripper_control_launch = IncludeLaunchDescription(
+    dual_ur5e_gripper_control_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [FindPackageShare("ur5e_gripper_control"), "/launch", "/ur5e_gripper_sim_control.launch.py"]
+            [FindPackageShare("dual_ur5e_gripper_moveit_config"), "/launch", "/dual_ur5e_gripper_sim_control.launch.py"]
         ),
         launch_arguments={
-            "prefix": prefix,
             "launch_rviz": "false",
         }.items(),
     )
 
-    ur5e_gripper_moveit_launch = IncludeLaunchDescription(
+    dual_ur5e_gripper_moveit_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [FindPackageShare("ur5e_gripper_moveit_config"), "/launch", "/ur5e_gripper_moveit.launch.py"]
+            [FindPackageShare("dual_ur5e_gripper_moveit_config"), "/launch", "/dual_ur5e_gripper_moveit.launch.py"]
         ),
         launch_arguments={
-            "prefix": prefix,
             "use_sim_time": "true",
             "launch_rviz": "false",
         }.items(),
     )
 
     nodes_to_launch = [
-        ur5e_gripper_control_launch,
-        ur5e_gripper_moveit_launch,
+        dual_ur5e_gripper_control_launch,
+        dual_ur5e_gripper_moveit_launch,
     ]
 
     return nodes_to_launch
@@ -71,14 +66,5 @@ def launch_setup(context, *args, **kwargs):
 
 def generate_launch_description():
     declared_arguments = []
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "prefix",
-            default_value='""',
-            description="Prefix of the joint names, useful for \
-        multi-robot setup. If changed than also joint names in the controllers' configuration \
-        have to be updated.",
-        )
-    )
 
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])

@@ -105,6 +105,16 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["right_ur5e_arm_controller", "-c", "/controller_manager"],
     )
+    left_robotiq_gripper_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["left_gripper_controller", "-c", "/controller_manager"],
+    )
+    right_robotiq_gripper_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["right_gripper_controller", "-c", "/controller_manager"],
+    )
 
     # Gazebo nodes
     gazebo = IncludeLaunchDescription(
@@ -128,6 +138,8 @@ def launch_setup(context, *args, **kwargs):
         delay_rviz_after_joint_state_broadcaster_spawner,
         left_ur5e_arm_controller_spawner,
         right_ur5e_arm_controller_spawner,
+        left_robotiq_gripper_controller_spawner,
+        right_robotiq_gripper_controller_spawner,
         gazebo,
         gazebo_spawn_robot,
     ]
