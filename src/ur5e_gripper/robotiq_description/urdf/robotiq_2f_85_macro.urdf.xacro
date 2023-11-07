@@ -280,30 +280,30 @@
             <mimic joint="${prefix}robotiq_85_left_knuckle_joint" />
         </joint>
         <!-- https://github.com/ros-controls/gazebo_ros2_control/issues/173 -->
-        <link name="dummy_child1"/>
-        <link name="dummy_child2"/>
-        <link name="dummy_child3"/>
-        <link name="dummy_child4"/>
-        <link name="dummy_child5"/>
+        <link name="${prefix}dummy_child1"/>
+        <link name="${prefix}dummy_child2"/>
+        <link name="${prefix}dummy_child3"/>
+        <link name="${prefix}dummy_child4"/>
+        <link name="${prefix}dummy_child5"/>
         <joint name="${prefix}robotiq_85_right_knuckle_joint_mimic" type="fixed">
             <parent link="${prefix}robotiq_85_base_link" />
-            <child link="dummy_child1" />
+            <child link="${prefix}dummy_child1" />
         </joint>
         <joint name="${prefix}robotiq_85_left_inner_knuckle_joint_mimic" type="fixed">
             <parent link="${prefix}robotiq_85_base_link" />
-            <child link="dummy_child2" />
+            <child link="${prefix}dummy_child2" />
         </joint>
         <joint name="${prefix}robotiq_85_right_inner_knuckle_joint_mimic" type="fixed">
             <parent link="${prefix}robotiq_85_base_link" />
-            <child link="dummy_child3" />
+            <child link="${prefix}dummy_child3" />
         </joint>
         <joint name="${prefix}robotiq_85_left_finger_tip_joint_mimic" type="fixed">
             <parent link="${prefix}robotiq_85_base_link" />
-            <child link="dummy_child4" />
+            <child link="${prefix}dummy_child4" />
         </joint>
         <joint name="${prefix}robotiq_85_right_finger_tip_joint_mimic" type="fixed">
             <parent link="${prefix}robotiq_85_base_link" />
-            <child link="dummy_child5" />
+            <child link="${prefix}dummy_child5" />
         </joint>
     </xacro:macro>
 </robot>
