@@ -12,6 +12,7 @@
   <depend>rclcpp</depend>
   <depend>moveit_core</depend>
   <depend>moveit_ros_planning_interface</depend>
+  <depend>tf2</depend>
   
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>

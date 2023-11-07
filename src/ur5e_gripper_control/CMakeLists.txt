@@ -11,11 +11,15 @@ find_package(rclcpp REQUIRED)
 find_package(moveit_common REQUIRED)
 find_package(moveit_core REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
+find_package(tf2 REQUIRED)
 
 add_executable(test_moveit src/test_moveit.cpp)
 ament_target_dependencies(test_moveit rclcpp moveit_ros_planning_interface)
 
-install(TARGETS test_moveit
+add_executable(test_dual src/test_dual.cpp)
+ament_target_dependencies(test_dual rclcpp moveit_ros_planning_interface tf2)
+
+install(TARGETS test_moveit test_dual
   DESTINATION lib/${PROJECT_NAME}
 )
 
