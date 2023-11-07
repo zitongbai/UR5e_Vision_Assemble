@@ -11,6 +11,9 @@ find_package(rclcpp REQUIRED)
 find_package(moveit_common REQUIRED)
 find_package(moveit_core REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
+find_package(moveit_ros_planning REQUIRED)
+find_package(moveit_visual_tools REQUIRED)
+
 find_package(tf2 REQUIRED)
 
 add_executable(test_moveit src/test_moveit.cpp)
@@ -19,7 +22,12 @@ ament_target_dependencies(test_moveit rclcpp moveit_ros_planning_interface)
 add_executable(test_dual src/test_dual.cpp)
 ament_target_dependencies(test_dual rclcpp moveit_ros_planning_interface tf2)
 
-install(TARGETS test_moveit test_dual
+add_executable(motion_planning src/motion_planning.cpp)
+ament_target_dependencies(motion_planning 
+  rclcpp moveit_ros_planning_interface tf2 
+  moveit_core moveit_ros_planning moveit_visual_tools)
+
+install(TARGETS test_moveit test_dual motion_planning
   DESTINATION lib/${PROJECT_NAME}
 )
 

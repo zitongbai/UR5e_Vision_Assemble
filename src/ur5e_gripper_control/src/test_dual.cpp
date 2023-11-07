@@ -25,25 +25,27 @@ int main(int argc, char * argv[]){
     right_gripper_orientation.normalize();
 
     auto const left_target_pose = [&left_gripper_orientation]{
-        geometry_msgs::msg::Pose msg;
-        msg.position.x = 0.3;
-        msg.position.y = 0.0;
-        msg.position.z = 0.3;
-        msg.orientation.w = left_gripper_orientation.w();
-        msg.orientation.x = left_gripper_orientation.x();
-        msg.orientation.y = left_gripper_orientation.y();
-        msg.orientation.z = left_gripper_orientation.z();
+        geometry_msgs::msg::PoseStamped msg;
+        msg.header.frame_id = "left_base_link";
+        msg.pose.position.x = 0.3;
+        msg.pose.position.y = 0.0;
+        msg.pose.position.z = 0.3;
+        msg.pose.orientation.w = left_gripper_orientation.w();
+        msg.pose.orientation.x = left_gripper_orientation.x();
+        msg.pose.orientation.y = left_gripper_orientation.y();
+        msg.pose.orientation.z = left_gripper_orientation.z();
         return msg;
     }();
     auto const right_target_pose = [&right_gripper_orientation]{
-        geometry_msgs::msg::Pose msg;
-        msg.position.x = 0.3;
-        msg.position.y = 0.0;
-        msg.position.z = 0.3;
-        msg.orientation.w = right_gripper_orientation.w();
-        msg.orientation.x = right_gripper_orientation.x();
-        msg.orientation.y = right_gripper_orientation.y();
-        msg.orientation.z = right_gripper_orientation.z();
+        geometry_msgs::msg::PoseStamped msg;
+        msg.header.frame_id = "right_base_link";
+        msg.pose.position.x = 0.3;
+        msg.pose.position.y = 0.0;
+        msg.pose.position.z = 0.3;
+        msg.pose.orientation.w = right_gripper_orientation.w();
+        msg.pose.orientation.x = right_gripper_orientation.x();
+        msg.pose.orientation.y = right_gripper_orientation.y();
+        msg.pose.orientation.z = right_gripper_orientation.z();
         return msg;
     }();
 
