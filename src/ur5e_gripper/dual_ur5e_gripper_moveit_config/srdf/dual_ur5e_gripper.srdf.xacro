@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur5e_gripper">
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="dual_ur5e_gripper">
 
     <xacro:include filename="$(find ur_moveit_config)/srdf/ur_macro.srdf.xacro" />
     <xacro:ur_srdf name="ur" prefix="left_" />
@@ -9,7 +9,7 @@
     <xacro:robotiq_srdf prefix="left_" />
     <xacro:robotiq_srdf prefix="right_" />
 
-    <!-- TODO: end effector -->
+    <!-- todo end effector -->
 
     <disable_collisions link1="left_robotiq_85_base_link" link2="left_wrist_1_link" reason="Never"/>
     <disable_collisions link1="left_robotiq_85_base_link" link2="left_wrist_2_link" reason="Never"/>
