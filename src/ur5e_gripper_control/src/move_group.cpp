@@ -9,6 +9,8 @@
 
 #include <moveit_visual_tools/moveit_visual_tools.h>
 
+#include <tf2/LinearMath/Quaternion.h>
+
 static const rclcpp::Logger LOGGER = rclcpp::get_logger("move_group_demo");
 
 
@@ -28,7 +30,7 @@ int main(int argc, char ** argv){
   // interface and joint group
   moveit::planning_interface::MoveGroupInterface move_group(move_group_node, PLANNING_GROUP);
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
-  const moveit::core::JointModelGroup * joint_model_group = move_group.getCurrentState()->getJointModelGroup(PLANNING_GROUP);
+  // const moveit::core::JointModelGroup * joint_model_group = move_group.getCurrentState()->getJointModelGroup(PLANNING_GROUP);
 
   // visual tools
   // namespace rvt = rviz_visual_tools;
@@ -51,13 +53,18 @@ int main(int argc, char ** argv){
             std::ostream_iterator<std::string>(std::cout, ", "));
   
   // visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to start the demo");
-
+  tf2::Quaternion target_quat;
+  target_quat.setRPY(0, M_PI, M_PI_2);
+  target_quat.normalize();
   geometry_msgs::msg::PoseStamped target_pose_1;
   target_pose_1.header.frame_id = "left_base_link";
-  target_pose_1.pose.position.x = 0.28;
-  target_pose_1.pose.position.y = 0.0;
-  target_pose_1.pose.position.z = 0.4;
-  target_pose_1.pose.orientation.x = 1.0;
+  target_pose_1.pose.position.x = 0.5;
+  target_pose_1.pose.position.y = -0.3;
+  target_pose_1.pose.position.z = 0.2;
+  target_pose_1.pose.orientation.w = target_quat.w();
+  target_pose_1.pose.orientation.x = target_quat.x();
+  target_pose_1.pose.orientation.y = target_quat.y();
+  target_pose_1.pose.orientation.z = target_quat.z();
   move_group.setPoseTarget(target_pose_1);
 
   moveit::planning_interface::MoveGroupInterface::Plan plan;

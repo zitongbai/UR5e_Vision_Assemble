@@ -129,10 +129,15 @@ def launch_setup(context, *args, **kwargs):
     #         [FindPackageShare("gazebo_ros"), "/launch", "/gazebo.launch.py"]
     #     ),
     # )
-    gazebo = ExecuteProcess(
-        cmd=['gazebo', '--verbose', gazebo_world_file, '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so'], 
-        output='screen',
-    )
+    gazebo = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),
+                launch_arguments={'world': gazebo_world_file}.items(),
+             )
+    # gazebo = ExecuteProcess(
+    #     cmd=['gazebo', '--verbose', gazebo_world_file, '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so'], 
+    #     output='screen',
+    # )
 
     # Spawn robot
     gazebo_spawn_robot = Node(
