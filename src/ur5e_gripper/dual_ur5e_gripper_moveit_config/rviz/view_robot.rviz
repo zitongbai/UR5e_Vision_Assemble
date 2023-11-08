@@ -8,6 +8,8 @@ Panels:
         - /Status1
         - /RobotModel1
         - /RobotModel1/Description Topic1
+        - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 719
   - Class: rviz_common/Selection
@@ -319,6 +321,200 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        left_base:
+          Value: false
+        left_base_link:
+          Value: true
+        left_base_link_inertia:
+          Value: false
+        left_dummy_child1:
+          Value: false
+        left_dummy_child2:
+          Value: false
+        left_dummy_child3:
+          Value: false
+        left_dummy_child4:
+          Value: false
+        left_dummy_child5:
+          Value: false
+        left_flange:
+          Value: false
+        left_forearm_link:
+          Value: false
+        left_ft_frame:
+          Value: false
+        left_robotiq_85_base_link:
+          Value: false
+        left_robotiq_85_left_finger_link:
+          Value: false
+        left_robotiq_85_left_finger_tip_link:
+          Value: false
+        left_robotiq_85_left_inner_knuckle_link:
+          Value: false
+        left_robotiq_85_left_knuckle_link:
+          Value: false
+        left_robotiq_85_right_finger_link:
+          Value: false
+        left_robotiq_85_right_finger_tip_link:
+          Value: false
+        left_robotiq_85_right_inner_knuckle_link:
+          Value: false
+        left_robotiq_85_right_knuckle_link:
+          Value: false
+        left_shoulder_link:
+          Value: false
+        left_tool0:
+          Value: true
+        left_upper_arm_link:
+          Value: false
+        left_wrist_1_link:
+          Value: false
+        left_wrist_2_link:
+          Value: false
+        left_wrist_3_link:
+          Value: false
+        right_base:
+          Value: false
+        right_base_link:
+          Value: true
+        right_base_link_inertia:
+          Value: false
+        right_dummy_child1:
+          Value: false
+        right_dummy_child2:
+          Value: false
+        right_dummy_child3:
+          Value: false
+        right_dummy_child4:
+          Value: false
+        right_dummy_child5:
+          Value: false
+        right_flange:
+          Value: false
+        right_forearm_link:
+          Value: false
+        right_ft_frame:
+          Value: false
+        right_robotiq_85_base_link:
+          Value: false
+        right_robotiq_85_left_finger_link:
+          Value: false
+        right_robotiq_85_left_finger_tip_link:
+          Value: false
+        right_robotiq_85_left_inner_knuckle_link:
+          Value: false
+        right_robotiq_85_left_knuckle_link:
+          Value: false
+        right_robotiq_85_right_finger_link:
+          Value: false
+        right_robotiq_85_right_finger_tip_link:
+          Value: false
+        right_robotiq_85_right_inner_knuckle_link:
+          Value: false
+        right_robotiq_85_right_knuckle_link:
+          Value: false
+        right_shoulder_link:
+          Value: false
+        right_tool0:
+          Value: true
+        right_upper_arm_link:
+          Value: false
+        right_wrist_1_link:
+          Value: false
+        right_wrist_2_link:
+          Value: false
+        right_wrist_3_link:
+          Value: false
+        world:
+          Value: false
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        world:
+          left_base_link:
+            left_base:
+              {}
+            left_base_link_inertia:
+              left_shoulder_link:
+                left_upper_arm_link:
+                  left_forearm_link:
+                    left_wrist_1_link:
+                      left_wrist_2_link:
+                        left_wrist_3_link:
+                          left_flange:
+                            left_tool0:
+                              left_robotiq_85_base_link:
+                                left_dummy_child1:
+                                  {}
+                                left_dummy_child2:
+                                  {}
+                                left_dummy_child3:
+                                  {}
+                                left_dummy_child4:
+                                  {}
+                                left_dummy_child5:
+                                  {}
+                                left_robotiq_85_left_inner_knuckle_link:
+                                  {}
+                                left_robotiq_85_left_knuckle_link:
+                                  left_robotiq_85_left_finger_link:
+                                    left_robotiq_85_left_finger_tip_link:
+                                      {}
+                                left_robotiq_85_right_inner_knuckle_link:
+                                  {}
+                                left_robotiq_85_right_knuckle_link:
+                                  left_robotiq_85_right_finger_link:
+                                    left_robotiq_85_right_finger_tip_link:
+                                      {}
+                          left_ft_frame:
+                            {}
+          right_base_link:
+            right_base:
+              {}
+            right_base_link_inertia:
+              right_shoulder_link:
+                right_upper_arm_link:
+                  right_forearm_link:
+                    right_wrist_1_link:
+                      right_wrist_2_link:
+                        right_wrist_3_link:
+                          right_flange:
+                            right_tool0:
+                              right_robotiq_85_base_link:
+                                right_dummy_child1:
+                                  {}
+                                right_dummy_child2:
+                                  {}
+                                right_dummy_child3:
+                                  {}
+                                right_dummy_child4:
+                                  {}
+                                right_dummy_child5:
+                                  {}
+                                right_robotiq_85_left_inner_knuckle_link:
+                                  {}
+                                right_robotiq_85_left_knuckle_link:
+                                  right_robotiq_85_left_finger_link:
+                                    right_robotiq_85_left_finger_tip_link:
+                                      {}
+                                right_robotiq_85_right_inner_knuckle_link:
+                                  {}
+                                right_robotiq_85_right_knuckle_link:
+                                  right_robotiq_85_right_finger_link:
+                                    right_robotiq_85_right_finger_tip_link:
+                                      {}
+                          right_ft_frame:
+                            {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -380,10 +576,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5803982019424438
+      Pitch: 0.6703981161117554
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.2853984534740448
+      Yaw: 0.8703979253768921
     Saved: ~
 Window Geometry:
   Displays:
