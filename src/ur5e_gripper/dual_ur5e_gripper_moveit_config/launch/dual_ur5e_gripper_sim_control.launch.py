@@ -34,6 +34,7 @@ from launch.actions import (
     IncludeLaunchDescription,
     OpaqueFunction,
     RegisterEventHandler,
+    ExecuteProcess
 )
 from launch.conditions import IfCondition, UnlessCondition
 from launch.event_handlers import OnProcessExit
@@ -42,6 +43,8 @@ from launch.substitutions import Command, FindExecutable, LaunchConfiguration, P
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
+from ament_index_python.packages import get_package_share_directory
+import os
 
 def launch_setup(context, *args, **kwargs):
 
@@ -49,6 +52,10 @@ def launch_setup(context, *args, **kwargs):
     description_package = LaunchConfiguration("description_package")
     description_file = LaunchConfiguration("description_file")
     launch_rviz = LaunchConfiguration("launch_rviz")
+    gazebo_world_file = os.path.join(
+        FindPackageShare(package='dual_ur5e_gripper_moveit_config').find('dual_ur5e_gripper_moveit_config'),
+        'gazebo','dual_ur5e.world'
+    )
 
     rviz_config_file = PathJoinSubstitution(
         [FindPackageShare(description_package), "rviz", "view_robot.rviz"]
@@ -117,10 +124,14 @@ def launch_setup(context, *args, **kwargs):
     )
 
     # Gazebo nodes
-    gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [FindPackageShare("gazebo_ros"), "/launch", "/gazebo.launch.py"]
-        ),
+    # gazebo = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         [FindPackageShare("gazebo_ros"), "/launch", "/gazebo.launch.py"]
+    #     ),
+    # )
+    gazebo = ExecuteProcess(
+        cmd=['gazebo', '--verbose', gazebo_world_file, '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so'], 
+        output='screen',
     )
 
     # Spawn robot

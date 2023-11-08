@@ -22,12 +22,12 @@ ament_target_dependencies(test_moveit rclcpp moveit_ros_planning_interface)
 add_executable(test_dual src/test_dual.cpp)
 ament_target_dependencies(test_dual rclcpp moveit_ros_planning_interface tf2)
 
-add_executable(motion_planning src/motion_planning.cpp)
-ament_target_dependencies(motion_planning 
+add_executable(move_group src/move_group.cpp)
+ament_target_dependencies(move_group 
   rclcpp moveit_ros_planning_interface tf2 
   moveit_core moveit_ros_planning moveit_visual_tools)
 
-install(TARGETS test_moveit test_dual motion_planning
+install(TARGETS test_moveit test_dual move_group
   DESTINATION lib/${PROJECT_NAME}
 )
 
