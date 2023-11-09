@@ -23,52 +23,16 @@
       <pose>0.8 0 0 0 0 1.570796</pose>
     </include>
 
-    <model name="obj1">
+    <include>
+      <name>obj1</name>
+      <uri>model://wood_cube_5cm</uri>
       <pose>0.5 0.2 1.1 0 0 0</pose>
-      <static>false</static>
-      <link name="link">
-        <visual name="visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.03 0.1</size>
-            </box>
-          </geometry>
-        </visual>
-        <collision name="collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.03 0.1</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-
-    <model name="obj2">
+    </include>
+    <include>
+      <name>obj2</name>
+      <uri>model://wood_cube_5cm</uri>
       <pose>0.5 -0.2 1.1 0 0 0</pose>
-      <static>false</static>
-      <link name="link">
-        <visual name="visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.03 0.1</size>
-            </box>
-          </geometry>
-        </visual>
-        <collision name="collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.03 0.1</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-
+    </include>
 
   </world>
 </sdf>

@@ -57,9 +57,10 @@ int main(int argc, char ** argv){
   rclcpp::NodeOptions node_options;
   node_options.automatically_declare_parameters_from_overrides(true);
   auto demo1_node = rclcpp::Node::make_shared("demo1", node_options);
-  demo1_node->set_parameter(rclcpp::Parameter("use_sim_time", true));
   const std::vector<double> target_position_1 = demo1_node->get_parameter("target_position_1").as_double_array();
   const std::vector<double> target_position_2 = demo1_node->get_parameter("target_position_2").as_double_array();
+  const double target_grasp_angle = demo1_node->get_parameter("target_grasp_angle").as_double();
+  const std::vector<double> target_position_3 = demo1_node->get_parameter("target_position_3").as_double_array();
 
   // action
 
@@ -113,6 +114,8 @@ int main(int argc, char ** argv){
 
   // step 1
   // move to target pose 1
+  moveit::core::RobotStatePtr current_state = move_group.getCurrentState(3.0);
+  
   bool success = manipulator_plan_and_execute(move_group, target_position_1, {0, M_PI, M_PI_2});
   if(!success){
     rclcpp::shutdown();
@@ -129,8 +132,8 @@ int main(int argc, char ** argv){
   // step 3
   // grasp the object via action
   auto goal_msg = GripperCommand::Goal();
-  goal_msg.command.position = 0.6;
-  goal_msg.command.max_effort = 0.5;
+  goal_msg.command.position = target_grasp_angle;
+  goal_msg.command.max_effort = 0.1;
   if(!gripper_client->wait_for_action_server(std::chrono::seconds(10))){
     RCLCPP_ERROR(LOGGER, "Action server not available after waiting");
     rclcpp::shutdown();
@@ -142,6 +145,15 @@ int main(int argc, char ** argv){
   send_goal_options.feedback_callback = std::bind(&feedback_callback, std::placeholders::_1, std::placeholders::_2);
   send_goal_options.result_callback = std::bind(&result_callback, std::placeholders::_1);
   gripper_client->async_send_goal(goal_msg, send_goal_options);
+
+
+  // step 4
+  // move to target pose 3
+  success = manipulator_plan_and_execute(move_group, target_position_3, {0, M_PI, M_PI_2});
+  if(!success){
+    rclcpp::shutdown();
+    return 0;
+  }
 
   rclcpp::shutdown();
   return 0;
@@ -162,6 +174,7 @@ bool manipulator_plan_and_execute(moveit::planning_interface::MoveGroupInterface
   target_pose.pose.orientation.x = target_quat.x();
   target_pose.pose.orientation.y = target_quat.y();
   target_pose.pose.orientation.z = target_quat.z();
+  // move_group.setJointValueTarget(target_pose);
   move_group.setPoseTarget(target_pose);
 
   moveit::planning_interface::MoveGroupInterface::Plan plan;
