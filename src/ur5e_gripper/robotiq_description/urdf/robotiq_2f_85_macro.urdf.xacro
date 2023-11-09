@@ -306,18 +306,14 @@
             <child link="${prefix}dummy_child5" />
         </joint>
         <!-- grasp fix -->
-        <gazebo>
-            <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+        <!-- <gazebo>
+            <plugin name="${prefix}gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
                  <arm>
-                    <arm_name>robotiq_gripper_arm</arm_name>
-                    <palm_link>${parent}</palm_link>
+                    <arm_name>${prefix}robotiq_gripper_arm</arm_name>
+                    <palm_link>${prefix}robotiq_85_left_inner_knuckle_link</palm_link>
                     <gripper_link>${prefix}robotiq_85_left_finger_tip_link</gripper_link>
+                    <palm_link>${prefix}robotiq_85_right_inner_knuckle_link</palm_link>
                     <gripper_link>${prefix}robotiq_85_right_finger_tip_link</gripper_link>
-                    <gripper_link>${prefix}robotiq_85_left_knuckle_link</gripper_link>
-                    <gripper_link>${prefix}robotiq_85_left_finger_link</gripper_link>
-                    <gripper_link>${prefix}robotiq_85_right_finger_link</gripper_link>
-                    <gripper_link>${prefix}robotiq_85_left_inner_knuckle_link</gripper_link>
-                    <gripper_link>${prefix}robotiq_85_right_inner_knuckle_link</gripper_link>
                  </arm>
                 <forces_angle_tolerance>100</forces_angle_tolerance>
                 <update_rate>2</update_rate>
@@ -327,6 +323,6 @@
                 <disable_collisions_on_attach>true</disable_collisions_on_attach>
                 <contact_topic>__default_topic__</contact_topic>
              </plugin>
-         </gazebo>
+         </gazebo> -->
     </xacro:macro>
 </robot>

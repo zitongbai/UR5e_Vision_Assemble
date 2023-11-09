@@ -1,6 +1,7 @@
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
-
+#include <thread>
+#include <chrono>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
 #include <moveit_msgs/msg/display_robot_state.hpp>
@@ -133,7 +134,7 @@ int main(int argc, char ** argv){
   // grasp the object via action
   auto goal_msg = GripperCommand::Goal();
   goal_msg.command.position = target_grasp_angle;
-  goal_msg.command.max_effort = 0.1;
+  goal_msg.command.max_effort = 1.0;
   if(!gripper_client->wait_for_action_server(std::chrono::seconds(10))){
     RCLCPP_ERROR(LOGGER, "Action server not available after waiting");
     rclcpp::shutdown();
@@ -145,7 +146,8 @@ int main(int argc, char ** argv){
   send_goal_options.feedback_callback = std::bind(&feedback_callback, std::placeholders::_1, std::placeholders::_2);
   send_goal_options.result_callback = std::bind(&result_callback, std::placeholders::_1);
   gripper_client->async_send_goal(goal_msg, send_goal_options);
-
+  
+  std::this_thread::sleep_for(std::chrono::seconds(2)); // wait for grasping
 
   // step 4
   // move to target pose 3
