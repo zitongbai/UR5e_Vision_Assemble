@@ -174,8 +174,8 @@ bool manipulator_plan_and_execute(moveit::planning_interface::MoveGroupInterface
   target_pose.pose.orientation.x = target_quat.x();
   target_pose.pose.orientation.y = target_quat.y();
   target_pose.pose.orientation.z = target_quat.z();
-  // move_group.setJointValueTarget(target_pose);
-  move_group.setPoseTarget(target_pose);
+  move_group.setJointValueTarget(target_pose);
+  // move_group.setPoseTarget(target_pose);
 
   moveit::planning_interface::MoveGroupInterface::Plan plan;
   bool success = (move_group.plan(plan) == moveit::core::MoveItErrorCode::SUCCESS);
