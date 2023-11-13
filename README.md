@@ -15,3 +15,12 @@ Use ROS2 and Gazebo to simulate 2 UR5 assembling objects.
 2. xml文件的注释中不要含有冒号:
 3. 记得区分${xxx}和$(arg xxx)
 4. 仿真需要设置`use_sim_time=true`，而且目前来看最好在launch文件里面来设置
+5. 因为固定link的tf没有被发布出来导致深度相机返回的数据有问题
+
+# Acknowledgment
+
+* Gazebo grasp plugin for ROS2 [gazebo_pkgs](https://github.com/kongoncharuk/gazebo-pkgs)
+* [ros2_robotiq_gripper](https://github.com/PickNikRobotics/ros2_robotiq_gripper)
+* [Universal_Robots_ROS2_Description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description)
+* [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver)
+* 

@@ -2,3 +2,10 @@
 	path = src/ur5e_gripper/Universal_Robots_ROS2_Description
 	url = git@github.com:zitongbai/Universal_Robots_ROS2_Description.git
 	branch = humble
+[submodule "src/libs/realsense_gazebo_plugin"]
+	path = src/libs/realsense_gazebo_plugin
+	url = git@github.com:zitongbai/realsense_gazebo_plugin.git
+	branch = foxy-devel
+[submodule "src/libs/realsense-ros"]
+	path = src/libs/realsense-ros
+	url = git@github.com:zitongbai/realsense-ros.git
