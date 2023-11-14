@@ -10,7 +10,7 @@ Use ROS2 and Gazebo to simulate 2 UR5 assembling objects.
 * Gazebo classic
 * Moveit2
 * ros2 control
-
+* image pipline
 
 
 # 记录一下踩过的各种坑

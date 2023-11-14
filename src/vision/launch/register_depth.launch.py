@@ -53,30 +53,37 @@ def generate_launch_description():
             package='rclcpp_components',
             executable='component_container',
             composable_node_descriptions=[
-                # Driver itself
+                launch_ros.descriptions.ComposableNode(
+                    package='depth_image_proc',
+                    plugin='depth_image_proc::ConvertMetricNode',
+                    name='convert_metric_node',
+                    remappings=[('image_raw', '/depth/image_raw'),
+                                ('camera_info', '/depth/camera_info'),
+                                ('image', '/depth/converted_image')]
+                ),
                 launch_ros.descriptions.ComposableNode(
                     package='depth_image_proc',
                     plugin='depth_image_proc::RegisterNode',
                     name='register_node',
-                    remappings=[('depth/image_rect', '/depth/image_raw'),
+                    remappings=[('depth/image_rect', '/depth/converted_image'),
                                 ('depth/camera_info', '/depth/camera_info'),
                                 ('rgb/camera_info', '/color/camera_info'),
                                 ('depth_registered/image_rect',
-                                 '/camera/depth_registered/image_rect'),
+                                 '/depth_registered/image_rect'),
                                 ('depth_registered/camera_info',
-                                 '/camera/depth_registered/camera_info')]
+                                 '/depth_registered/camera_info')]
                 ),
             ],
             output='screen',
         ),
 
-        launch_ros.actions.Node(
-            package="rviz2",
-            executable="rviz2",
-            name="rviz2",
-            output="log",
-            arguments=["-d", default_rviz],
-        ),
+        # launch_ros.actions.Node(
+        #     package="rviz2",
+        #     executable="rviz2",
+        #     name="rviz2",
+        #     output="log",
+        #     arguments=["-d", default_rviz],
+        # ),
 
         # rviz
         # launch_ros.actions.Node(
