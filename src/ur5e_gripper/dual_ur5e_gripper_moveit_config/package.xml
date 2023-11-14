@@ -20,6 +20,9 @@
   <exec_depend>ur5e_gripper_description</exec_depend>
   <exec_depend>ur5e_gripper_moveit_config</exec_depend>
 
+  <exec_depend>realsense2_description</exec_depend>
+  <exec_depend>realsense_gazebo_plugin</exec_depend>
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
