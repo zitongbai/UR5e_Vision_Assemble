@@ -1,11 +1,15 @@
 # UR5_Vision_Assemble
 Use ROS2 and Gazebo to simulate 2 UR5 assembling objects. 
 
-## Environment
+# Environment
 
 * Ubuntu 22.04
 * ROS2 humble
+
+# Dependence
 * Gazebo classic
+* Moveit2
+* ros2 control
 
 
 
