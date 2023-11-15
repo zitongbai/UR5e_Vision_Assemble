@@ -19,7 +19,8 @@ using GoalHandleGripperCommand = rclcpp_action::ClientGoalHandle<GripperCommand>
 static const rclcpp::Logger LOGGER = rclcpp::get_logger("demo2");
 
 bool manipulator_plan_and_execute(moveit::planning_interface::MoveGroupInterface & move_group, 
-                                  const std::vector<double> & target_pose, 
+                                  const std::vector<double> & target_position, 
+                                  const std::vector<double> & target_orientation, 
                                   const bool & left_arm);
 
 void goal_response_callback(const GoalHandleGripperCommand::SharedPtr & goal_handle){
@@ -59,11 +60,10 @@ int main(int argc, char ** argv){
   node_options.automatically_declare_parameters_from_overrides(true);
   auto demo2_node = rclcpp::Node::make_shared("demo2", node_options);
 
-  const std::vector<double> target_pose_1 = demo2_node->get_parameter("target_pose_1").as_double_array();
-  const std::vector<double> target_pose_2 = demo2_node->get_parameter("target_pose_2").as_double_array();
+  const std::vector<double> target_position_1 = demo2_node->get_parameter("target_position_1").as_double_array();
+  const std::vector<double> target_position_2 = demo2_node->get_parameter("target_position_2").as_double_array();
   const double target_grasp_angle = demo2_node->get_parameter("target_grasp_angle").as_double();
-  const std::vector<double> target_pose_3 = demo2_node->get_parameter("target_pose_3").as_double_array();
-  const std::vector<double> target_pose_4 = demo2_node->get_parameter("target_pose_4").as_double_array();
+  const std::vector<double> target_position_3 = demo2_node->get_parameter("target_position_3").as_double_array();
   const std::string which_arm = demo2_node->get_parameter("which_arm").as_string();
   const bool left_arm = [&which_arm](){
     if(which_arm == "left"){
@@ -132,19 +132,21 @@ int main(int argc, char ** argv){
   // move to target pose 1
   moveit::core::RobotStatePtr current_state = move_group.getCurrentState(3.0);
   
-  bool success = manipulator_plan_and_execute(move_group, target_pose_1, left_arm);
+  bool success = manipulator_plan_and_execute(move_group, target_position_1, {0, M_PI, M_PI_2}, left_arm);
   if(!success){
     rclcpp::shutdown();
     return 0;
   }
   // step 2
-  // move to target pose 2 and grasp the object via action
-  success = manipulator_plan_and_execute(move_group, target_pose_2, left_arm);
+  // move to target pose 2
+  success = manipulator_plan_and_execute(move_group, target_position_2, {0, M_PI, M_PI_2}, left_arm);
   if(!success){
     rclcpp::shutdown();
     return 0;
   }
 
+  // step 3
+  // grasp the object via action
   auto goal_msg = GripperCommand::Goal();
   goal_msg.command.position = target_grasp_angle;
   goal_msg.command.max_effort = 1.0;
@@ -162,43 +164,35 @@ int main(int argc, char ** argv){
   
   std::this_thread::sleep_for(std::chrono::seconds(2)); // wait for grasping
 
-  // step 3
-  // move to target pose 3
-  success = manipulator_plan_and_execute(move_group, target_pose_3, left_arm);
-  if(!success){
-    rclcpp::shutdown();
-    return 0;
-  }
-
   // step 4
-  // move to target pose 4
-  success = manipulator_plan_and_execute(move_group, target_pose_4, left_arm);
+  // move to target pose 3
+  success = manipulator_plan_and_execute(move_group, target_position_3, {0, M_PI, M_PI_2}, left_arm);
   if(!success){
     rclcpp::shutdown();
     return 0;
   }
-
 
   rclcpp::shutdown();
   return 0;
 }
 
 bool manipulator_plan_and_execute(moveit::planning_interface::MoveGroupInterface & move_group, 
-                                  const std::vector<double> & target_pose, 
+                                  const std::vector<double> & target_position, 
+                                  const std::vector<double> & target_orientation, 
                                   const bool & left_arm){
   tf2::Quaternion target_quat;
-  target_quat.setRPY(target_pose[3], target_pose[4], target_pose[5]);
+  target_quat.setRPY(target_orientation[0], target_orientation[1], target_orientation[2]);
   target_quat.normalize();
-  geometry_msgs::msg::PoseStamped target_pose_stamped;
-  target_pose_stamped.header.frame_id = left_arm ? "left_base_link" : "right_base_link";
-  target_pose_stamped.pose.position.x = target_pose[0];
-  target_pose_stamped.pose.position.y = target_pose[1];
-  target_pose_stamped.pose.position.z = target_pose[2];
-  target_pose_stamped.pose.orientation.w = target_quat.w();
-  target_pose_stamped.pose.orientation.x = target_quat.x();
-  target_pose_stamped.pose.orientation.y = target_quat.y();
-  target_pose_stamped.pose.orientation.z = target_quat.z();
-  move_group.setJointValueTarget(target_pose_stamped);
+  geometry_msgs::msg::PoseStamped target_pose;
+  target_pose.header.frame_id = left_arm ? "left_base_link" : "right_base_link";
+  target_pose.pose.position.x = target_position[0];
+  target_pose.pose.position.y = target_position[1];
+  target_pose.pose.position.z = target_position[2];
+  target_pose.pose.orientation.w = target_quat.w();
+  target_pose.pose.orientation.x = target_quat.x();
+  target_pose.pose.orientation.y = target_quat.y();
+  target_pose.pose.orientation.z = target_quat.z();
+  move_group.setJointValueTarget(target_pose);
   // move_group.setPoseTarget(target_pose);
 
   moveit::planning_interface::MoveGroupInterface::Plan plan;

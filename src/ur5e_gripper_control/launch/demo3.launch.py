@@ -6,12 +6,18 @@ from launch.actions import ExecuteProcess
 from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 from launch.substitutions import PathJoinSubstitution
-from math import pi
+
 
 def generate_launch_description():
 
     robot_description_kinematics = PathJoinSubstitution(
         [FindPackageShare("dual_ur5e_gripper_moveit_config"), "config", "kinematics.yaml"]
+    )
+
+    left_target_pose_list = os.path.join(
+        get_package_share_directory('ur5e_gripper_control'),
+        'config', 
+        'left_target_pose_list.yaml'
     )
 
     return LaunchDescription([
@@ -20,15 +26,15 @@ def generate_launch_description():
             executable='demo2',
             name='demo2_left_ur5e_node',
             parameters=[{
-                "target_pose_1": [0.5, -0.3, 0.4, 0, pi, pi/2],
-                "target_pose_2": [0.5, -0.3, 0.15, 0, pi, pi/2],
+                "target_position_1": [0.5, -0.3, 0.4],
+                "target_position_2": [0.5, -0.3, 0.15],
                 "target_grasp_angle": 0.42,
-                "target_pose_3": [0.5, -0.3, 0.4, pi/2, -pi/2, 0],
-                "target_pose_4": [0.5, -0.33, 0.4, pi/2, -pi/2, 0],
+                "target_position_3": [0.5, 0.0, 0.4],
                 "use_sim_time":True, 
                 "which_arm": "left",
             },
-            robot_description_kinematics
+            robot_description_kinematics, 
+            left_target_pose_list
             ]
         ),
         Node(
@@ -36,11 +42,10 @@ def generate_launch_description():
             executable='demo2',
             name='demo2_right_ur5e_node',
             parameters=[{
-                "target_pose_1": [0.5, 0.3, 0.4, 0, pi, pi/2],
-                "target_pose_2": [0.5, 0.3, 0.15, 0, pi, pi/2],
+                "target_position_1": [0.5, 0.3, 0.4],
+                "target_position_2": [0.5, 0.3, 0.15],
                 "target_grasp_angle": 0.42,
-                "target_pose_3": [0.5, 0.3, 0.4, -pi/2, pi/2, 0],
-                "target_pose_4": [0.5, 0.33, 0.4, -pi/2, pi/2, 0],
+                "target_position_3": [0.5, 0.0, 0.4],
                 "use_sim_time":True, 
                 "which_arm": "right",
             },
