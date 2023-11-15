@@ -35,7 +35,12 @@ ament_target_dependencies(demo1
   rclcpp moveit_ros_planning_interface tf2 
   moveit_core moveit_ros_planning control_msgs)
 
-install(TARGETS test_moveit test_dual move_group demo1
+add_executable(demo2 src/demo2.cpp)
+ament_target_dependencies(demo2 
+  rclcpp moveit_ros_planning_interface tf2 
+  moveit_core moveit_ros_planning control_msgs)
+
+install(TARGETS test_moveit test_dual move_group demo1 demo2
   DESTINATION lib/${PROJECT_NAME}
 )
 
