@@ -42,8 +42,8 @@ import launch_ros.descriptions
 
 
 def generate_launch_description():
-    default_rviz = os.path.join(get_package_share_directory('vision'),
-                                'rviz', 'depth_register.rviz')
+    # default_rviz = os.path.join(get_package_share_directory('vision'),
+    #                             'rviz', 'depth_register.rviz')
     return LaunchDescription([
 
         # launch plugin through rclcpp_components container

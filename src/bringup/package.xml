@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>bringup</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="zitongbai@outlook.com">xiaobaige</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>ros2launch</exec_depend>
+  <exec_depend>robotiq_description</exec_depend>
+  <exec_depend>robotiq_moveit_config</exec_depend>
+  <exec_depend>ur5e_gripper_description</exec_depend>
+  <exec_depend>ur5e_gripper_moveit_config</exec_depend>
+  <exec_depend>realsense2_description</exec_depend>
+  <exec_depend>realsense_gazebo_plugin</exec_depend>
+  <exec_depend>vision</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

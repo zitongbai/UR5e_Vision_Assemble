@@ -51,7 +51,7 @@ def launch_setup(context, *args, **kwargs):
     moveit_config_file = LaunchConfiguration("moveit_config_file")
     prefix = LaunchConfiguration("prefix")
     use_sim_time = LaunchConfiguration("use_sim_time")
-    launch_rviz = LaunchConfiguration("launch_rviz")
+    # launch_rviz = LaunchConfiguration("launch_rviz")
 
 
     robot_description_content = Command(
