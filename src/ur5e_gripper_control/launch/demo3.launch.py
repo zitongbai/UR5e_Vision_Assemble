@@ -17,39 +17,20 @@ def generate_launch_description():
     left_target_pose_list = os.path.join(
         get_package_share_directory('ur5e_gripper_control'),
         'config', 
-        'left_target_pose_list.yaml'
+        'target_pose_list.yaml'
     )
 
     return LaunchDescription([
         Node(
             package='ur5e_gripper_control',
-            executable='demo2',
-            name='demo2_left_ur5e_node',
+            executable='demo3',
+            name='dem3_node',
             parameters=[{
-                "target_position_1": [0.5, -0.3, 0.4],
-                "target_position_2": [0.5, -0.3, 0.15],
-                "target_grasp_angle": 0.42,
-                "target_position_3": [0.5, 0.0, 0.4],
-                "use_sim_time":True, 
-                "which_arm": "left",
-            },
-            robot_description_kinematics, 
-            left_target_pose_list
-            ]
-        ),
-        Node(
-            package='ur5e_gripper_control',
-            executable='demo2',
-            name='demo2_right_ur5e_node',
-            parameters=[{
-                "target_position_1": [0.5, 0.3, 0.4],
-                "target_position_2": [0.5, 0.3, 0.15],
-                "target_grasp_angle": 0.42,
-                "target_position_3": [0.5, 0.0, 0.4],
-                "use_sim_time":True, 
-                "which_arm": "right",
-            },
-            robot_description_kinematics
-            ]
+                    "use_sim_time":True,
+                },
+                robot_description_kinematics, 
+                left_target_pose_list
+            ], 
+            output='screen'
         ),
     ])

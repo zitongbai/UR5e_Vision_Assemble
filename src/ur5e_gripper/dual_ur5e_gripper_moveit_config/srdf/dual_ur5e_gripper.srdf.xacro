@@ -9,7 +9,10 @@
     <xacro:robotiq_srdf prefix="left_" />
     <xacro:robotiq_srdf prefix="right_" />
 
-    <!-- todo end effector -->
+    <group name="both_manipulators">
+        <group name="left_ur_manipulator"/>
+        <group name="right_ur_manipulator"/>
+    </group>
 
     <disable_collisions link1="left_robotiq_85_base_link" link2="left_wrist_1_link" reason="Never"/>
     <disable_collisions link1="left_robotiq_85_base_link" link2="left_wrist_2_link" reason="Never"/>

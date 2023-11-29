@@ -13,7 +13,7 @@ def launch_setup(context, *args, **kwargs):
             [FindPackageShare("dual_ur5e_gripper_moveit_config"), "/launch", "/dual_ur5e_gripper_sim_control.launch.py"]
         ),
         launch_arguments={
-            "launch_rviz": "true",
+            "launch_rviz": "false",
         }.items(),
     )
 

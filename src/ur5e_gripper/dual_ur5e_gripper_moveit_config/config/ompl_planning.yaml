@@ -84,3 +84,19 @@ right_ur_manipulator:
   ##Note: commenting the following line lets moveit chose RRTConnect as default planner rather than LBKPIECE
   projection_evaluator: joints(right_shoulder_pan_joint,right_shoulder_lift_joint)
   longest_valid_segment_fraction: 0.01
+both_manipulators:
+  planner_configs:
+    - SBLkConfigDefault
+    - ESTkConfigDefault
+    - LBKPIECEkConfigDefault
+    - BKPIECEkConfigDefault
+    - KPIECEkConfigDefault
+    - RRTkConfigDefault
+    - RRTConnectkConfigDefault
+    - RRTstarkConfigDefault
+    - TRRTkConfigDefault
+    - PRMkConfigDefault
+    - PRMstarkConfigDefault
+  ##Note: commenting the following line lets moveit chose RRTConnect as default planner rather than LBKPIECE
+  # projection_evaluator: joints(right_shoulder_pan_joint,right_shoulder_lift_joint)
+  longest_valid_segment_fraction: 0.01
