@@ -3,11 +3,14 @@ import os
 from glob import glob
 
 package_name = 'vision'
+submodule_model_name = 'vision/yolov5/models'
+submodule_utils_name = 'vision/yolov5/utils'
 
 setup(
     name=package_name,
     version='0.0.0',
-    packages=find_packages(exclude=['test']),
+    # packages=find_packages(exclude=['test']),
+    packages=[package_name, submodule_model_name, submodule_utils_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -26,7 +29,8 @@ setup(
     entry_points={
         'console_scripts': [
             'img_listerner = vision.get_image_test:main',
-            'img_process = vision.image_process:main'
+            'img_process = vision.image_process:main',
+            'obj_detect = vision.obj_detect:main',
         ],
     },
 )
