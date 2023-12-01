@@ -148,7 +148,9 @@ class ObjDetect(Node):
                     
         if self.view_img:
             img0 = annotator.result()
-            cv2.imshow('yolov5_ros2', img0)
+            cv2.namedWindow('obj_detect', cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO) # allow window resize (Linux)
+            cv2.resizeWindow('obj_detect', img0.shape[1], img0.shape[0])
+            cv2.imshow('obj_detect', img0)
             cv2.waitKey(1)
         
         if self.publish_result:
