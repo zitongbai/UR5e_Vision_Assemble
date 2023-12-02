@@ -68,10 +68,8 @@ def generate_launch_description():
                     remappings=[('depth/image_rect', '/depth/converted_image'),
                                 ('depth/camera_info', '/depth/camera_info'),
                                 ('rgb/camera_info', '/color/camera_info'),
-                                ('depth_registered/image_rect',
-                                 '/depth_registered/image_rect'),
-                                ('depth_registered/camera_info',
-                                 '/depth_registered/camera_info')]
+                                ('depth_registered/image_rect', '/depth_registered/image_rect'),
+                                ('depth_registered/camera_info', '/depth_registered/camera_info')]
                 ),
             ],
             output='screen',
