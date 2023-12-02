@@ -26,7 +26,7 @@
     <xacro:arg name="use_mesh" default="true" />
     <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
     <xacro:sensor_d435 parent="world" use_nominal_extrinsics="$(arg use_nominal_extrinsics)" add_plug="$(arg add_plug)" use_mesh="$(arg use_mesh)">
-        <origin xyz="2 0 2.5" rpy="0 0.785398163 3.1415926"/>
+        <origin xyz="1.5 0 2" rpy="0 0.785398163 3.1415926"/>
     </xacro:sensor_d435>
 
     <gazebo>

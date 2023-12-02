@@ -206,6 +206,7 @@ class ObjDetect(Node):
                 obj_hypothesis.hypothesis.class_id = self.names[int(cls)]
                 obj_hypothesis.hypothesis.score = float(conf)
                 Z = dep[int(detection.bbox.center.position.y), int(detection.bbox.center.position.x)]
+                Z = Z * 1e-3 # mm to m
                 uv1 = np.array([detection.bbox.center.position.x, detection.bbox.center.position.y, 1.0])
                 XZ_YZ_1 = np.dot(self.depth_instrinsic_inv, uv1)
                 XYZ = np.array([XZ_YZ_1[0] * Z, XZ_YZ_1[1] * Z, Z])
@@ -223,7 +224,7 @@ class ObjDetect(Node):
                     annotator.box_label(xyxy, label, color=colors(c, True))
                     # use cv2 draw a red point labeled with XYZ[2] in img0
                     cv2.circle(img0, (int(detection.bbox.center.position.x), int(detection.bbox.center.position.y)), 2, (0, 0, 255), -1)
-                    cv2.putText(img0, f'{XYZ[2]:.2f}', (int(detection.bbox.center.position.x), int(detection.bbox.center.position.y)), cv2.FONT_HERSHEY_SIMPLEX, 5, (0, 0, 255), 1, cv2.LINE_AA)
+                    cv2.putText(img0, f'{XYZ[2]:.2f}', (int(detection.bbox.center.position.x), int(detection.bbox.center.position.y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
         
         if len(det) and self.view_img:
             img0 = annotator.result()

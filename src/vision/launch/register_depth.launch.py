@@ -53,19 +53,19 @@ def generate_launch_description():
             package='rclcpp_components',
             executable='component_container',
             composable_node_descriptions=[
-                launch_ros.descriptions.ComposableNode(
-                    package='depth_image_proc',
-                    plugin='depth_image_proc::ConvertMetricNode',
-                    name='convert_metric_node',
-                    remappings=[('image_raw', '/depth/image_raw'),
-                                ('camera_info', '/depth/camera_info'),
-                                ('image', '/depth/converted_image')]
-                ),
+                # launch_ros.descriptions.ComposableNode(
+                #     package='depth_image_proc',
+                #     plugin='depth_image_proc::ConvertMetricNode',
+                #     name='convert_metric_node',
+                #     remappings=[('image_raw', '/depth/image_raw'),
+                #                 ('camera_info', '/depth/camera_info'),
+                #                 ('image', '/depth/converted_image')]
+                # ),
                 launch_ros.descriptions.ComposableNode(
                     package='depth_image_proc',
                     plugin='depth_image_proc::RegisterNode',
                     name='register_node',
-                    remappings=[('depth/image_rect', '/depth/converted_image'),
+                    remappings=[('depth/image_rect', '/depth/image_raw'),
                                 ('depth/camera_info', '/depth/camera_info'),
                                 ('rgb/camera_info', '/color/camera_info'),
                                 ('depth_registered/image_rect', '/depth_registered/image_rect'),

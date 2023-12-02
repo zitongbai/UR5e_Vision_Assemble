@@ -28,10 +28,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'img_listerner = vision.get_image_test:main',
-            'img_process = vision.image_process:main',
             'obj_detect = vision.obj_detect:main',
             'test_sync = vision.test_sync:main',
+            'test_rs = vision.test_rs:main',
         ],
     },
 )
