@@ -15,6 +15,13 @@ Use ROS2 and Gazebo to simulate 2 UR5 assembling objects.
 * ros2 control
 * image pipline
 
+# Usage
+
+## Before usage
+
+make sure you have all the dependences installed
+
+make sure you have local gazebo model in `~/.gazebo/models`
 
 # 记录一下踩过的各种坑
 
