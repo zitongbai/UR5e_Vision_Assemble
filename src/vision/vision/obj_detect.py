@@ -60,7 +60,7 @@ class ObjDetect(Node):
         self.declare_parameter("depth_info_topic", "/depth_registered/camera_info", ParameterDescriptor(
             name="depth_info_topic", description="depth camera info topic"))
         
-        self.declare_parameter("detection_freq", 10, ParameterDescriptor(
+        self.declare_parameter("detection_freq", 30, ParameterDescriptor(
             name="detection_freq", description="detection frequency [Hz]"))
         
         self.declare_parameter("view_image", True, ParameterDescriptor(
@@ -236,84 +236,6 @@ class ObjDetect(Node):
         if self.publish_result:
             self.detection_result.header.stamp = self.get_clock().now().to_msg()
             self.detection_pub.publish(self.detection_result)
-
-    # def image_callback(self, msg:Image):
-    #     img = self.bridge.imgmsg_to_cv2(msg, desired_encoding= 'bgr8') # HWC
-    #     img0 = img.copy() # for visualization
-    #     # Padded resize
-    #     img = letterbox(img, new_shape=self.imgsz, stride=self.stride, auto=self.pt)[0]
-    #     img = img.transpose(2, 0, 1) # HWC to CHW
-    #     img = np.ascontiguousarray(img) # contiguous array for memory efficiency
-    #     # convert to torch gpu
-    #     img = torch.from_numpy(img).to(self.model.device)
-    #     img = img.half() if self.half else img.float()
-    #     img /= 255.0
-    #     if len(img.shape) == 3:
-    #         img = img[None] # expand for batch dim
-    #     # inference
-    #     augment = False # augmented inference
-    #     pred = self.model(img, augment=augment, visualize=False)
-    #     # NMS
-    #     conf_thres = 0.25
-    #     iou_thres = 0.45
-    #     classes = None # optional filter by class
-    #     agnostic_nms = False # class-agnostic NMS
-    #     max_det = 1000 # maximum detections per image
-    #     pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
-
-    #     # process predictions 
-    #     det = pred[0] # we only has one image
-    #     annotator = Annotator(img0, line_width=3, example=str(self.names[0]))
-    #     if len(det):
-    #         # Rescale boxes from img_size to im0 size
-    #         det[:, :4] = scale_boxes(img.shape[2:], det[:, :4], img0.shape).round()
-    #         # self.get_logger().info(f'img shape={img.shape}, img0 shape={img0.shape}', throttle_duration_sec=1)
-    #         # annotate results
-    #         for *xyxy, conf, cls in reversed(det):
-    #             # add to detection result msg
-    #             detection = Detection2D()
-    #             detection.id = self.names[int(cls)]
-    #             x1, y1, x2, y2 = int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3])
-    #             detection.bbox.center.position.x = (x1 + x2) / 2.0
-    #             detection.bbox.center.position.y = (y1 + y2) / 2.0
-    #             detection.bbox.size_x = float(x2 - x1)
-    #             detection.bbox.size_y = float(y2 - y1)
-    #             obj_hypothesis = ObjectHypothesisWithPose()
-    #             obj_hypothesis.hypothesis.class_id = self.names[int(cls)]
-    #             obj_hypothesis.hypothesis.score = float(conf)
-
-    #             # not good enough! 
-    #             depth_img = self.bridge.imgmsg_to_cv2(self.depth_registered, desired_encoding= 'passthrough')
-    #             center_Z = depth_img[int(detection.bbox.center.position.y), int(detection.bbox.center.position.x)]
-    #             uv1 = np.array([detection.bbox.center.position.x, detection.bbox.center.position.y, 1.0])
-    #             XZ_YZ_1 = np.dot(np.linalg.inv(self.camera_info['k']), uv1)
-    #             XYZ = np.array([XZ_YZ_1[0] * center_Z, XZ_YZ_1[1] * center_Z, center_Z])
-    #             obj_hypothesis.pose.pose.position.x = XYZ[0]
-    #             obj_hypothesis.pose.pose.position.y = XYZ[1]
-    #             obj_hypothesis.pose.pose.position.z = XYZ[2]
-
-    #             detection.results.append(obj_hypothesis)
-    #             self.detection_result.detections.append(detection)
-
-    #             if self.view_img:
-    #                 c = int(cls)
-    #                 label = f'{self.names[c]} {conf:.2f}'
-    #                 annotator.box_label(xyxy, label, color=colors(c, True))
-    #                 # use cv2 draw a red point labeled with XYZ[2] in img0
-    #                 cv2.circle(img0, (int(detection.bbox.center.position.x), int(detection.bbox.center.position.y)), 2, (0, 0, 255), -1)
-    #                 cv2.putText(img0, f'{XYZ[2]:.2f}', (int(detection.bbox.center.position.x), int(detection.bbox.center.position.y)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
-                     
-                    
-    #     if self.view_img:
-    #         img0 = annotator.result()
-    #         cv2.namedWindow('obj_detect', cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO) # allow window resize (Linux)
-    #         cv2.resizeWindow('obj_detect', img0.shape[1], img0.shape[0])
-    #         cv2.imshow('obj_detect', img0)
-    #         cv2.waitKey(1)
-        
-    #     if self.publish_result:
-    #         self.detection_pub.publish(self.detection_result)
-
 
 
 def main(args=None):
