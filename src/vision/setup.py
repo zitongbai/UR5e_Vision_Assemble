@@ -31,6 +31,7 @@ setup(
             'obj_detect = vision.obj_detect:main',
             'test_sync = vision.test_sync:main',
             'test_rs = vision.test_rs:main',
+            'obj_seg = vision.obj_seg:main',
         ],
     },
 )

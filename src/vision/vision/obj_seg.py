@@ -32,20 +32,19 @@ from .yolov5.models.common import DetectMultiBackend
 from .yolov5.utils.torch_utils import select_device
 from .yolov5.utils.general import check_img_size, check_imshow, non_max_suppression, scale_boxes
 from .yolov5.utils.augmentations import letterbox
+from .yolov5.utils.segment.general import process_mask, masks2segments
 
-
-
-
-class ObjDetect(Node):
+class ObjSegmentation(Node):
     def __init__(self):
-        super().__init__('obj_detect')
-        self.get_logger().info('obj_detect node started')
+        super().__init__('obj_segmentation')
+        self.get_logger().info("ObjSegmentation node started")
         self.bridge = CvBridge()
+
         # ROS2 parameters declaration
-        self.declare_parameter("weights_path", str(ROOT / 'yolov5s.pt'), ParameterDescriptor(
+        self.declare_parameter("weights_path", str(ROOT / 'best.pt'), ParameterDescriptor(
             name="weights_path", description="path to weights file"))
         
-        self.declare_parameter("data_path", str(ROOT / 'data/coco128.yaml'), ParameterDescriptor(
+        self.declare_parameter("data_path", str(ROOT / 'data/gazebo_seg.yaml'), ParameterDescriptor(
             name="data_path", description="path to dataset.yaml"))
 
         self.declare_parameter("image_topic", "/color/image_raw", ParameterDescriptor(
@@ -60,8 +59,8 @@ class ObjDetect(Node):
         self.declare_parameter("depth_info_topic", "/depth_registered/camera_info", ParameterDescriptor(
             name="depth_info_topic", description="depth camera info topic"))
         
-        self.declare_parameter("detection_freq", 30, ParameterDescriptor(
-            name="detection_freq", description="detection frequency [Hz]"))
+        self.declare_parameter("segmentation_freq", 30, ParameterDescriptor(
+            name="segmentation_freq", description="detection frequency [Hz]"))
         
         self.declare_parameter("view_image", True, ParameterDescriptor(
             name="view_image", description="whether to show the detect result in a window"))
@@ -70,12 +69,8 @@ class ObjDetect(Node):
             name="publish_result", description="whether to publish the detect result"))
         
         # set parameter use_sim_time to true
-        use_sim_time = rclpy.Parameter(
-            'use_sim_time',
-            rclpy.Parameter.Type.BOOL,
-            True
-        )
-        self.set_parameters([use_sim_time])   
+        use_sim_time = rclpy.Parameter('use_sim_time', rclpy.Parameter.Type.BOOL, True)
+        self.set_parameters([use_sim_time])
 
         # ROS2 camera info subscriber
         image_info_topic = self.get_parameter("image_info_topic").value
@@ -92,9 +87,9 @@ class ObjDetect(Node):
         self.depth_instrinsic = np.array(self.depth_info.k, dtype=np.float32).reshape(3, 3)
         self.depth_instrinsic_inv = np.linalg.inv(self.depth_instrinsic)
 
-        # ROS2 detection result publisher
+        # ROS2 detection/segmentation publisher
         self.publish_result = self.get_parameter("publish_result").value
-        self.detection_pub = self.create_publisher(Detection2DArray, 'detection', 10)
+        self.detection_pub = self.create_publisher(Detection2DArray, 'obj_detection', 10)
         self.detection_result = Detection2DArray()
 
         # load yolov5 model
@@ -121,8 +116,8 @@ class ObjDetect(Node):
         self.depth_sub = self.create_subscription(Image, depth_topic, self.depth_callback, 10)
         
         # ROS2 timer
-        self.detection_freq = self.get_parameter("detection_freq").value
-        self.timer = self.create_timer(1.0 / self.detection_freq, self.timer_callback)
+        self.segmentation_freq = self.get_parameter("segmentation_freq").value
+        self.timer = self.create_timer(1.0 / self.segmentation_freq, self.timer_callback)
 
 
     def depth_callback(self, msg:Image):
@@ -135,9 +130,8 @@ class ObjDetect(Node):
         """
         Callback function for timer
         Process the image and depth data, and publish the detection result
-        in frequency of detection_freq
+        in frequency of segmentation_freq
         """
-
         # check if we have received up to date image and depth
         tol_sec = 0.5
         image_stamp = self.image.header.stamp.sec + self.image.header.stamp.nanosec * 1e-9
@@ -153,7 +147,7 @@ class ObjDetect(Node):
         
         # image preprocessing
         dep = self.bridge.imgmsg_to_cv2(self.depth, desired_encoding= 'passthrough')
-        img = self.bridge.imgmsg_to_cv2(self.image, desired_encoding= 'bgr8') # HWC
+        img = self.bridge.imgmsg_to_cv2(self.image, desired_encoding= 'passthrough') # HWC
         img0 = img.copy() # for visualization
         # Padded resize
         img = letterbox(img, new_shape=self.imgsz, stride=self.stride, auto=self.pt)[0]
@@ -164,10 +158,10 @@ class ObjDetect(Node):
         img /= 255.0 # 0 - 255 to 0.0 - 1.0
         if len(img.shape) == 3:
             img = img[None] # expand for batch dim
-        
+
         # inference
         augment = False # augmented inference
-        pred = self.model(img, augment=augment, visualize=False)
+        pred, proto = self.model(img, augment=augment, visualize=False)[:2]
 
         # NMS
         conf_thres = 0.25
@@ -175,51 +169,30 @@ class ObjDetect(Node):
         classes = None # optional filter by class
         agnostic_nms = False # class-agnostic NMS
         max_det = 1000 # maximum detections per image
-        pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
+        pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det, nm=32)
 
         # process predictions
         det = pred[0] # we only has one image
+        proto = proto[0]
         annotator = Annotator(img0, line_width=3, example=str(self.names))
         if len(det):
-            # Rescale boxes from img_size to im0 size
-            det[:, :4] = scale_boxes(img.shape[2:], det[:, :4], img0.shape).round()
+            masks = process_mask(proto, det[:, 6:], det[:, :4], img.shape[2:], upsample=True)  # HWC
+            det[:, :4] = scale_boxes(img.shape[2:], det[:, :4], img0.shape).round()  # rescale boxes to im0 size
 
-            # prepare detection result msg and annote results
-            for *xyxy, conf, cls in reversed(det):
-                # prepare detection result msg
-                detection = Detection2D()
-                detection.id = self.names[int(cls)]
-                x1, y1, x2, y2 = int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3])
-                detection.bbox.center.position.x = (x1 + x2) / 2.0
-                detection.bbox.center.position.y = (y1 + y2) / 2.0
-                detection.bbox.size_x = float(x2 - x1)
-                detection.bbox.size_y = float(y2 - y1)
+            # mask plotting
+            annotator.masks(
+                masks, 
+                colors=[colors(x, True) for x in det[:, 5]], 
+                im_gpu=img[0]
+            )
 
-                # add hypothesis to detection result msg
-                obj_hypothesis = ObjectHypothesisWithPose()
-                obj_hypothesis.hypothesis.class_id = self.names[int(cls)]
-                obj_hypothesis.hypothesis.score = float(conf)
-                Z = dep[int(detection.bbox.center.position.y), int(detection.bbox.center.position.x)]
-                Z = Z * 1e-3 # mm to m
-                uv1 = np.array([detection.bbox.center.position.x, detection.bbox.center.position.y, 1.0])
-                XZ_YZ_1 = np.dot(self.depth_instrinsic_inv, uv1)
-                XYZ = np.array([XZ_YZ_1[0] * Z, XZ_YZ_1[1] * Z, Z])
-                obj_hypothesis.pose.pose.position.x = XYZ[0]
-                obj_hypothesis.pose.pose.position.y = XYZ[1]
-                obj_hypothesis.pose.pose.position.z = XYZ[2]
+            for j, (*xyxy, conf, cls) in enumerate(reversed(det[:, :6])):
 
-                detection.results.append(obj_hypothesis)
-                self.detection_result.detections.append(detection)
-
-                # annotate results
                 if self.view_img:
-                    c = int(cls)
+                    c = int(cls)  # integer class
                     label = f'{self.names[c]} {conf:.2f}'
                     annotator.box_label(xyxy, label, color=colors(c, True))
-                    # use cv2 draw a red point labeled with XYZ[2] in img0
-                    cv2.circle(img0, (int(detection.bbox.center.position.x), int(detection.bbox.center.position.y)), 2, (0, 0, 255), -1)
-                    cv2.putText(img0, f'{XYZ[2]:.2f}', (int(detection.bbox.center.position.x), int(detection.bbox.center.position.y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
-        
+
         if self.view_img:
             img0 = annotator.result()
             cv2.namedWindow('obj_detect', cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)
@@ -227,19 +200,12 @@ class ObjDetect(Node):
             cv2.imshow('obj_detect', img0)
             cv2.waitKey(1)
         
-        if self.publish_result:
-            self.detection_result.header.stamp = self.get_clock().now().to_msg()
-            self.detection_pub.publish(self.detection_result)
-
-
 def main(args=None):
-    rclpy.init()
-    obj_det_node = ObjDetect()
-    rclpy.spin(obj_det_node)
-    obj_det_node.destroy_node()
+    rclpy.init(args=args)
+    obj_segmentation = ObjSegmentation()
+    rclpy.spin(obj_segmentation)
+    obj_segmentation.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
-
-
