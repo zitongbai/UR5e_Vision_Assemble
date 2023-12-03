@@ -9,3 +9,6 @@
 [submodule "src/libs/realsense-ros"]
 	path = src/libs/realsense-ros
 	url = git@github.com:zitongbai/realsense-ros.git
+[submodule "src/vision/vision/yolov5"]
+	path = src/vision/vision/yolov5
+	url = git@github.com:zitongbai/yolov5.git
