@@ -22,7 +22,7 @@ def generate_launch_description():
             parameters=[{
                 "target_pose_1": [0.5, -0.3, 0.4, 0, pi, pi/2],
                 "target_pose_2": [0.5, -0.3, 0.15, 0, pi, pi/2],
-                "target_grasp_angle": 0.42,
+                "target_grasp_angle": 0.38,
                 "target_pose_3": [0.5, -0.3, 0.4, pi/2, -pi/2, 0],
                 "target_pose_4": [0.5, -0.33, 0.4, pi/2, -pi/2, 0],
                 "use_sim_time":True, 
@@ -38,7 +38,7 @@ def generate_launch_description():
             parameters=[{
                 "target_pose_1": [0.5, 0.3, 0.4, 0, pi, pi/2],
                 "target_pose_2": [0.5, 0.3, 0.15, 0, pi, pi/2],
-                "target_grasp_angle": 0.42,
+                "target_grasp_angle": 0.38,
                 "target_pose_3": [0.5, 0.3, 0.4, -pi/2, pi/2, 0],
                 "target_pose_4": [0.5, 0.33, 0.4, -pi/2, pi/2, 0],
                 "use_sim_time":True, 
