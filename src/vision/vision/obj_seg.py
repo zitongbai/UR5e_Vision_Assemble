@@ -3,7 +3,7 @@ import rclpy
 from rclpy.node import Node
 from rcl_interfaces.msg import ParameterDescriptor
 from std_msgs.msg import String
-from sensor_msgs.msg import CompressedImage
+from sensor_msgs.msg import CompressedImage, Image
 from sensor_msgs.msg import CameraInfo
 from vision_msgs.msg import Detection2DArray, Detection2D, ObjectHypothesisWithPose
 import cv2
@@ -53,7 +53,7 @@ class ObjSegmentation(Node):
         self.declare_parameter("image_info_topic", "/color/camera_info", ParameterDescriptor(
             name="camera_info_topic", description="camera info topic"))
         
-        self.declare_parameter("depth_topic", "/depth_registered/image_rect/compressedDepth", ParameterDescriptor(
+        self.declare_parameter("depth_topic", "/depth_registered/image_rect", ParameterDescriptor(
             name="depth_topic", description="depth image topic"))
         
         self.declare_parameter("depth_info_topic", "/depth_registered/camera_info", ParameterDescriptor(
@@ -110,10 +110,10 @@ class ObjSegmentation(Node):
         image_topic = self.get_parameter("image_topic").value
         depth_topic = self.get_parameter("depth_topic").value
 
-        self.image = CompressedImage()
-        self.depth = CompressedImage()
+        self.image = CompressedImage() # for color image, we use compressed image so that we can get the image faster
+        self.depth = Image() # for depth image, it is very strange that using compressed image would slow down the transport, thus we use raw image
         self.image_sub = self.create_subscription(CompressedImage, image_topic, self.image_callback, 10)
-        self.depth_sub = self.create_subscription(CompressedImage, depth_topic, self.depth_callback, 10)
+        self.depth_sub = self.create_subscription(Image, depth_topic, self.depth_callback, 10)
         
         # ROS2 timer
         self.segmentation_freq = self.get_parameter("segmentation_freq").value
@@ -146,16 +146,8 @@ class ObjSegmentation(Node):
             return
         
         # image preprocessing
-        # for color image, we can use cvbridge: 
         img = self.bridge.compressed_imgmsg_to_cv2(self.image, desired_encoding='rgb8') # HWC
-        # but for depth image, we have to remove the first 12 bytes of header
-        # REF: https://stackoverflow.com/questions/41051998/ros-compresseddepth-to-numpy-or-cv2
-        # REF: https://robotics.stackexchange.com/questions/77192/decode-compresseddepth-message-from-compressed-depth-image-transport
-        dep_str = self.depth.data
-        dep_buf = np.ndarray(shape=(1, len(dep_str)), dtype=np.uint8, buffer=dep_str)
-        depth_header_size = 12
-        dep_buf = dep_buf[0, depth_header_size:] # remove header from raw data
-        dep = cv2.imdecode(dep_buf, cv2.IMREAD_UNCHANGED) # HWC, unit: mm
+        dep = self.bridge.imgmsg_to_cv2(self.depth, desired_encoding='passthrough') # HWC, unit: mm
 
         img0 = img.copy() # for visualization
         # Padded resize

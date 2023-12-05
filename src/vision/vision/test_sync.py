@@ -16,10 +16,17 @@ class DepthImageSync(Node):
         self.get_logger().info("test_sync node started")
         self.bridge = CvBridge()
         # self.color_compressed_sub = self.create_subscription(CompressedImage, '/color/image_raw/compressed', self.color_compressed_callback, 10)
-        self.depth_compressed_sub = self.create_subscription(CompressedImage, 
-                                                             '/depth_registered/image_rect/compressedDepth', 
-                                                             self.depth_compressed_callback, 
-                                                             qos_profile_sensor_data)
+        # self.depth_compressed_sub = self.create_subscription(CompressedImage, 
+        #                                                     #  '/depth_registered/image_rect/compressedDepth', 
+        #                                                     '/depth/image_raw/compressedDepth',
+        #                                                      self.depth_compressed_callback, 
+        #                                                      qos_profile_sensor_data)
+
+        self.depth_sub = self.create_subscription(Image, 
+                                                  '/depth/image_raw',
+                                                  self.depth_callback, 
+                                                  10
+                                                  )
 
     def color_compressed_callback(self, msg:CompressedImage):
         #### direct conversion to CV2 ####
@@ -62,7 +69,8 @@ class DepthImageSync(Node):
         # plt.imshow(depth, cmap='hot', interpolation='nearest')
         # plt.show()
 
-
+    def depth_callback(self, msg:Image):
+        pass
 
 
 def main(args=None):
