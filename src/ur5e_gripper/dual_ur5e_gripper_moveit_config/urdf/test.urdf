@@ -107,7 +107,7 @@
       </command_interface>
       <state_interface name="position">
         <!-- initial position for the FakeSystem and simulation -->
-        <param name="initial_value">0.0</param>
+        <param name="initial_value">1.57</param>
       </state_interface>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
@@ -139,7 +139,7 @@
       </command_interface>
       <state_interface name="position">
         <!-- initial position for the FakeSystem and simulation -->
-        <param name="initial_value">0.0</param>
+        <param name="initial_value">-1.57</param>
       </state_interface>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
@@ -301,7 +301,7 @@
   </link>
   <!-- base_joint fixes base_link to the environment -->
   <joint name="left_base_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 -0.5 0"/>
+    <origin rpy="0 0 0" xyz="0 0.5 1.03"/>
     <parent link="world"/>
     <child link="left_base_link"/>
   </joint>
@@ -721,6 +721,25 @@
     <parent link="left_robotiq_85_base_link"/>
     <child link="left_dummy_child5"/>
   </joint>
+  <!-- grasp fix -->
+  <!-- <gazebo>
+            <plugin name="${prefix}gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+                 <arm>
+                    <arm_name>${prefix}robotiq_gripper_arm</arm_name>
+                    <palm_link>${prefix}robotiq_85_left_inner_knuckle_link</palm_link>
+                    <gripper_link>${prefix}robotiq_85_left_finger_tip_link</gripper_link>
+                    <palm_link>${prefix}robotiq_85_right_inner_knuckle_link</palm_link>
+                    <gripper_link>${prefix}robotiq_85_right_finger_tip_link</gripper_link>
+                 </arm>
+                <forces_angle_tolerance>100</forces_angle_tolerance>
+                <update_rate>2</update_rate>
+                <grip_count_threshold>1</grip_count_threshold>
+                <max_grip_count>2</max_grip_count>
+                <release_tolerance>0.005</release_tolerance>
+                <disable_collisions_on_attach>true</disable_collisions_on_attach>
+                <contact_topic>__default_topic__</contact_topic>
+             </plugin>
+         </gazebo> -->
   <!--
     Base UR robot series xacro macro.
 
@@ -822,7 +841,7 @@
       </command_interface>
       <state_interface name="position">
         <!-- initial position for the FakeSystem and simulation -->
-        <param name="initial_value">0.0</param>
+        <param name="initial_value">1.57</param>
       </state_interface>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
@@ -854,7 +873,7 @@
       </command_interface>
       <state_interface name="position">
         <!-- initial position for the FakeSystem and simulation -->
-        <param name="initial_value">0.0</param>
+        <param name="initial_value">-1.57</param>
       </state_interface>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
@@ -1016,7 +1035,7 @@
   </link>
   <!-- base_joint fixes base_link to the environment -->
   <joint name="right_base_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0.5 0"/>
+    <origin rpy="0 0 0" xyz="0 -0.5 1.03"/>
     <parent link="world"/>
     <child link="right_base_link"/>
   </joint>
@@ -1436,9 +1455,281 @@
     <parent link="right_robotiq_85_base_link"/>
     <child link="right_dummy_child5"/>
   </joint>
+  <!-- grasp fix -->
+  <!-- <gazebo>
+            <plugin name="${prefix}gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+                 <arm>
+                    <arm_name>${prefix}robotiq_gripper_arm</arm_name>
+                    <palm_link>${prefix}robotiq_85_left_inner_knuckle_link</palm_link>
+                    <gripper_link>${prefix}robotiq_85_left_finger_tip_link</gripper_link>
+                    <palm_link>${prefix}robotiq_85_right_inner_knuckle_link</palm_link>
+                    <gripper_link>${prefix}robotiq_85_right_finger_tip_link</gripper_link>
+                 </arm>
+                <forces_angle_tolerance>100</forces_angle_tolerance>
+                <update_rate>2</update_rate>
+                <grip_count_threshold>1</grip_count_threshold>
+                <max_grip_count>2</max_grip_count>
+                <release_tolerance>0.005</release_tolerance>
+                <disable_collisions_on_attach>true</disable_collisions_on_attach>
+                <contact_topic>__default_topic__</contact_topic>
+             </plugin>
+         </gazebo> -->
+  <material name="aluminum">
+    <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+  <material name="plastic">
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+  <!-- camera body, with origin at bottom screw mount -->
+  <joint name="camera_joint" type="fixed">
+    <origin rpy="0 0.785398163 3.1415926" xyz="1.5 0 2"/>
+    <parent link="world"/>
+    <child link="camera_bottom_screw_frame"/>
+  </joint>
+  <link name="camera_bottom_screw_frame"/>
+  <joint name="camera_link_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.010600000000000002 0.0175 0.0125"/>
+    <parent link="camera_bottom_screw_frame"/>
+    <child link="camera_link"/>
+  </joint>
+  <link name="camera_link">
+    <visual>
+      <!-- the mesh origin is at front plate in between the two infrared camera axes -->
+      <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0043 -0.0175 0"/>
+      <geometry>
+        <mesh filename="file:///home/xiaobaige/UR5e_Vision_Assemble/install/realsense2_description/share/realsense2_description/meshes/d435.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 -0.0175 0"/>
+      <geometry>
+        <box size="0.02505 0.09 0.025"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <!-- The following are not reliable values, and should not be used for modeling -->
+      <mass value="0.072"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.003881243" ixy="0.0" ixz="0.0" iyy="0.000498940" iyz="0.0" izz="0.003879257"/>
+    </inertial>
+  </link>
+  <!-- camera depth joints and links -->
+  <joint name="camera_depth_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_depth_frame"/>
+  </joint>
+  <link name="camera_depth_frame"/>
+  <joint name="camera_depth_optical_joint" type="fixed">
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+    <parent link="camera_depth_frame"/>
+    <child link="camera_depth_optical_frame"/>
+  </joint>
+  <link name="camera_depth_optical_frame"/>
+  <!-- camera left IR joints and links -->
+  <joint name="camera_infra1_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_infra1_frame"/>
+  </joint>
+  <link name="camera_infra1_frame"/>
+  <joint name="camera_infra1_optical_joint" type="fixed">
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+    <parent link="camera_infra1_frame"/>
+    <child link="camera_infra1_optical_frame"/>
+  </joint>
+  <link name="camera_infra1_optical_frame"/>
+  <!-- camera right IR joints and links -->
+  <joint name="camera_infra2_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.05 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_infra2_frame"/>
+  </joint>
+  <link name="camera_infra2_frame"/>
+  <joint name="camera_infra2_optical_joint" type="fixed">
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+    <parent link="camera_infra2_frame"/>
+    <child link="camera_infra2_optical_frame"/>
+  </joint>
+  <link name="camera_infra2_optical_frame"/>
+  <!-- camera color joints and links -->
+  <joint name="camera_color_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.015 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_color_frame"/>
+  </joint>
+  <link name="camera_color_frame"/>
+  <joint name="camera_color_optical_joint" type="fixed">
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+    <parent link="camera_color_frame"/>
+    <child link="camera_color_optical_frame"/>
+  </joint>
+  <link name="camera_color_optical_frame"/>
+  <gazebo reference="camera_link">
+    <self_collide>0</self_collide>
+    <enable_wind>0</enable_wind>
+    <kinematic>0</kinematic>
+    <gravity>1</gravity>
+    <!--<mu>1</mu>-->
+    <mu2>1</mu2>
+    <fdir1>0 0 0</fdir1>
+    <!--<slip1>0</slip1>
+      <slip2>0</slip2>-->
+    <kp>1e+13</kp>
+    <kd>1</kd>
+    <!--<max_vel>0.01</max_vel>
+      <min_depth>0</min_depth>-->
+    <sensor name="cameracolor" type="camera">
+      <camera name="camera">
+        <horizontal_fov>1.57</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+          <format>RGB_INT8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>60</update_rate>
+      <visualize>1</visualize>
+    </sensor>
+    <sensor name="cameraired1" type="camera">
+      <camera name="camera">
+        <horizontal_fov>1.57</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+          <format>L_INT8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.05</stddev>
+        </noise>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>1</update_rate>
+      <visualize>0</visualize>
+    </sensor>
+    <sensor name="cameraired2" type="camera">
+      <camera name="camera">
+        <horizontal_fov>1.57</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+          <format>L_INT8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.05</stddev>
+        </noise>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>1</update_rate>
+      <visualize>0</visualize>
+    </sensor>
+    <sensor name="cameradepth" type="depth">
+      <camera name="camera">
+        <horizontal_fov>1.57</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.100</stddev>
+        </noise>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>60</update_rate>
+      <visualize>0</visualize>
+    </sensor>
+  </gazebo>
+  <gazebo>
+    <plugin filename="librealsense_gazebo_plugin.so" name="plugin_name">
+      <prefix>camera</prefix>
+      <depthUpdateRate>30.0</depthUpdateRate>
+      <colorUpdateRate>30.0</colorUpdateRate>
+      <infraredUpdateRate>1.0</infraredUpdateRate>
+      <depthTopicName>depth/image_raw</depthTopicName>
+      <depthCameraInfoTopicName>depth/camera_info</depthCameraInfoTopicName>
+      <colorTopicName>color/image_raw</colorTopicName>
+      <colorCameraInfoTopicName>color/camera_info</colorCameraInfoTopicName>
+      <infrared1TopicName>infra1/image_raw</infrared1TopicName>
+      <infrared1CameraInfoTopicName>infra1/camera_info</infrared1CameraInfoTopicName>
+      <infrared2TopicName>infra2/image_raw</infrared2TopicName>
+      <infrared2CameraInfoTopicName>infra2/camera_info</infrared2CameraInfoTopicName>
+      <colorOpticalframeName>camera_color_optical_frame</colorOpticalframeName>
+      <depthOpticalframeName>camera_depth_optical_frame</depthOpticalframeName>
+      <infrared1OpticalframeName>camera_infra1_optical_frame</infrared1OpticalframeName>
+      <infrared2OpticalframeName>camera_infra2_optical_frame</infrared2OpticalframeName>
+      <rangeMinDepth>0.2</rangeMinDepth>
+      <rangeMaxDepth>10.0</rangeMaxDepth>
+      <pointCloud>false</pointCloud>
+      <pointCloudTopicName>depth/points</pointCloudTopicName>
+      <pointCloudCutoff>0.5</pointCloudCutoff>
+    </plugin>
+  </gazebo>
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
       <parameters>/home/xiaobaige/UR5e_Vision_Assemble/install/dual_ur5e_gripper_moveit_config/share/dual_ur5e_gripper_moveit_config/config/dual_ur5e_gripper_controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="libgazebo_grasp_fix.so" name="gazebo_grasp_fix">
+      <arm>
+        <arm_name>left_robotiq_gripper_arm</arm_name>
+        <palm_link>left_wrist_3_link</palm_link>
+        <gripper_link>left_robotiq_85_left_finger_tip_link</gripper_link>
+        <gripper_link>left_robotiq_85_right_finger_tip_link</gripper_link>
+        <gripper_link>left_robotiq_85_left_knuckle_link</gripper_link>
+        <gripper_link>left_robotiq_85_right_knuckle_link</gripper_link>
+        <!-- <gripper_link>left_robotiq_85_left_finger_link</gripper_link>
+                <gripper_link>left_robotiq_85_right_finger_link</gripper_link> -->
+        <gripper_link>left_robotiq_85_left_inner_knuckle_link</gripper_link>
+        <gripper_link>left_robotiq_85_right_inner_knuckle_link</gripper_link>
+      </arm>
+      <arm>
+        <arm_name>right_robotiq_gripper_arm</arm_name>
+        <palm_link>right_wrist_3_link</palm_link>
+        <gripper_link>right_robotiq_85_left_finger_tip_link</gripper_link>
+        <gripper_link>right_robotiq_85_right_finger_tip_link</gripper_link>
+        <gripper_link>right_robotiq_85_left_knuckle_link</gripper_link>
+        <gripper_link>right_robotiq_85_right_knuckle_link</gripper_link>
+        <!-- <gripper_link>left_robotiq_85_left_finger_link</gripper_link>
+                <gripper_link>left_robotiq_85_right_finger_link</gripper_link> -->
+        <gripper_link>right_robotiq_85_left_inner_knuckle_link</gripper_link>
+        <gripper_link>right_robotiq_85_right_inner_knuckle_link</gripper_link>
+      </arm>
+      <forces_angle_tolerance>150</forces_angle_tolerance>
+      <update_rate>50</update_rate>
+      <grip_count_threshold>2</grip_count_threshold>
+      <max_grip_count>8</max_grip_count>
+      <release_tolerance>0.05</release_tolerance>
+      <disable_collisions_on_attach>true</disable_collisions_on_attach>
+      <contact_topic>__default_topic__</contact_topic>
     </plugin>
   </gazebo>
 </robot>

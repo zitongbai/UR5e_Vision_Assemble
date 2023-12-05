@@ -176,6 +176,7 @@ class ObjSegmentation(Node):
         det = pred[0] # we only has one image
         proto = proto[0]
         annotator = Annotator(img0, line_width=3, example=str(self.names))
+        self.detection_result = Detection2DArray()
         if len(det):
             masks = process_mask(proto, det[:, 6:], det[:, :4], img.shape[2:], upsample=True)  # HWC
             det[:, :4] = scale_boxes(img.shape[2:], det[:, :4], img0.shape).round()  # rescale boxes to im0 size
@@ -188,11 +189,41 @@ class ObjSegmentation(Node):
             )
 
             for j, (*xyxy, conf, cls) in enumerate(reversed(det[:, :6])):
+                # prepare detection result msg
+                detection = Detection2D()
+                detection.id = self.names[int(cls)]
+                x1, y1, x2, y2 = int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3])
+                detection.bbox.center.position.x = (x1 + x2) / 2.0
+                detection.bbox.center.position.y = (y1 + y2) / 2.0
+                detection.bbox.size_x = float(x2 - x1)
+                detection.bbox.size_y = float(y2 - y1)
+                # add hypothesis to detection result msg
+                obj_hypothesis = ObjectHypothesisWithPose()
+                obj_hypothesis.hypothesis.class_id = self.names[int(cls)]
+                obj_hypothesis.hypothesis.score = float(conf)
+                Z = dep[int(detection.bbox.center.position.y), int(detection.bbox.center.position.x)]
+                Z = Z * 1e-3 # mm to m
+                uv1 = np.array([detection.bbox.center.position.x, detection.bbox.center.position.y, 1.0])
+                XZ_YZ_1 = np.dot(self.depth_instrinsic_inv, uv1)
+                XYZ = np.array([XZ_YZ_1[0] * Z, XZ_YZ_1[1] * Z, Z])
+                obj_hypothesis.pose.pose.position.x = XYZ[0]
+                obj_hypothesis.pose.pose.position.y = XYZ[1]
+                obj_hypothesis.pose.pose.position.z = XYZ[2]
+                detection.results.append(obj_hypothesis)
+                self.detection_result.detections.append(detection)
 
                 if self.view_img:
                     c = int(cls)  # integer class
                     label = f'{self.names[c]} {conf:.2f}'
                     annotator.box_label(xyxy, label, color=colors(c, True))
+                    # use cv2 draw a red point labeled with XYZ[2] in img0
+                    cv2.circle(img0, (int(detection.bbox.center.position.x), int(detection.bbox.center.position.y)), 2, (0, 0, 255), -1)
+                    cv2.putText(img0, f'{XYZ[2]:.2f}', (int(detection.bbox.center.position.x), int(detection.bbox.center.position.y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
+        print(len(self.detection_result.detections))
+        self.detection_result.header.stamp = self.get_clock().now().to_msg()
+        self.detection_result.header.frame_id = 'camera_color_optical_frame'
+        self.detection_pub.publish(self.detection_result)
+
 
         if self.view_img:
             img0 = annotator.result()

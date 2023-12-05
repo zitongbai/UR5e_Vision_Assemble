@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <sdf version='1.7'>
   <world name='default'>
     <light name='sun' type='directional'>
@@ -620,58 +619,58 @@
       <static>1</static>
     </model>
     <state world_name='default'>
-      <sim_time>493 737000000</sim_time>
-      <real_time>36 578954953</real_time>
-      <wall_time>1701743943 702234508</wall_time>
-      <iterations>36543</iterations>
+      <sim_time>606 955000000</sim_time>
+      <real_time>113 427190049</real_time>
+      <wall_time>1701792249 3330493</wall_time>
+      <iterations>113218</iterations>
       <model name='blue_box'>
-        <pose>0.5 -0.5 1.04 -2e-06 -3.6e-05 2.2e-05</pose>
+        <pose>0.700001 -0.5 1.04 0 1e-05 2.7e-05</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.5 -0.5 1.04 -2e-06 -3.6e-05 2.2e-05</pose>
+          <pose>0.700001 -0.5 1.04 0 1e-05 2.7e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
+          <acceleration>-0.036338 0.03634 -0.072684 -1.4536 -1.45365 -0</acceleration>
+          <wrench>-0.036338 0.03634 -0.072684 0 -0 0</wrench>
         </link>
       </model>
       <model name='box_1'>
-        <pose>0.3 -0.5 1.04 -2e-06 8e-06 1e-05</pose>
+        <pose>0.3 -0.5 1.04 -3e-06 1.7e-05 7e-06</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.3 -0.5 1.04 -2e-06 8e-06 1e-05</pose>
+          <pose>0.3 -0.5 1.04 -3e-06 1.7e-05 7e-06</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.036342 0.036341 -0.072683 -1.45363 -1.45365 -0</acceleration>
-          <wrench>-0.036342 0.036341 -0.072683 0 -0 0</wrench>
+          <acceleration>-0.036338 -0.036339 -0.073434 1.45354 -1.45349 0</acceleration>
+          <wrench>-0.036338 -0.036339 -0.073434 0 -0 0</wrench>
         </link>
       </model>
       <model name='box_2'>
-        <pose>0.5 0.5 1.04 2e-06 4e-06 1.8e-05</pose>
+        <pose>0.699999 0.5 1.04 3e-05 -2.6e-05 1.7e-05</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.5 0.5 1.04 2e-06 4e-06 1.8e-05</pose>
+          <pose>0.699999 0.5 1.04 3e-05 -2.6e-05 1.7e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
+          <acceleration>0.036342 0.036343 -0.072678 -1.45362 1.45358 0</acceleration>
+          <wrench>0.036342 0.036343 -0.072678 0 -0 0</wrench>
         </link>
       </model>
       <model name='box_3'>
-        <pose>0.3 0.5 1.04 -4e-06 8e-06 1.6e-05</pose>
+        <pose>0.299999 0.5 1.04 -8e-06 -1.7e-05 1.2e-05</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.3 0.5 1.04 -4e-06 8e-06 1.6e-05</pose>
+          <pose>0.299999 0.5 1.04 -8e-06 -1.7e-05 1.2e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.036338 -0.036339 -0.072685 1.4536 1.45366 -0</acceleration>
-          <wrench>0.036338 -0.036339 -0.072685 0 -0 0</wrench>
+          <acceleration>0.038383 -0.038053 0.385187 1.52205 1.52201 -4.9e-05</acceleration>
+          <wrench>0.038383 -0.038053 0.385187 0 -0 0</wrench>
         </link>
       </model>
       <model name='box_4'>
-        <pose>0.4 0.5 1.04 1e-05 2e-06 1.6e-05</pose>
+        <pose>0.499999 0.5 1.04 -2.6e-05 -2e-05 -1.6e-05</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.4 0.5 1.04 1e-05 2e-06 1.6e-05</pose>
+          <pose>0.499999 0.5 1.04 -2.6e-05 -2e-05 -1.6e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
+          <acceleration>0.036341 -0.036342 -0.072679 1.45363 1.45359 0</acceleration>
+          <wrench>0.036341 -0.036342 -0.072679 0 -0 0</wrench>
         </link>
       </model>
       <model name='building'>
@@ -707,13 +706,13 @@
         </link>
       </model>
       <model name='red_box'>
-        <pose>0.4 -0.5 1.04 -2e-06 4e-06 1.4e-05</pose>
+        <pose>0.5 -0.5 1.04 -1e-06 -6e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.4 -0.5 1.04 -2e-06 4e-06 1.4e-05</pose>
+          <pose>0.5 -0.5 1.04 -1e-06 -6e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.03634 -0.036342 -0.072682 1.45366 -1.45361 0</acceleration>
-          <wrench>-0.03634 -0.036342 -0.072682 0 -0 0</wrench>
+          <acceleration>0.036341 -0.036341 -0.072683 1.45364 1.45363 -0</acceleration>
+          <wrench>0.036341 -0.036341 -0.072683 0 -0 0</wrench>
         </link>
       </model>
       <model name='table'>
@@ -844,7 +843,7 @@
     </model>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>9.94842 -0.696739 11.1713 0 0.824281 -2.92249</pose>
+        <pose>2.5612 -0.743396 2.37832 0 0.600281 2.8007</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

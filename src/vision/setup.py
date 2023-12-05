@@ -33,6 +33,7 @@ setup(
             'test_rs = vision.test_rs:main',
             'obj_seg = vision.obj_seg:main',
             'record = vision.record:main',
+            'det_tf = vision.det_tf:main',
         ],
     },
 )
