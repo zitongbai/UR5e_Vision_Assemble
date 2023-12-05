@@ -3,7 +3,7 @@ import rclpy
 from rclpy.node import Node
 from rcl_interfaces.msg import ParameterDescriptor
 from std_msgs.msg import String
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import CompressedImage
 from sensor_msgs.msg import CameraInfo
 from vision_msgs.msg import Detection2DArray, Detection2D, ObjectHypothesisWithPose
 import cv2
@@ -47,13 +47,13 @@ class ObjSegmentation(Node):
         self.declare_parameter("data_path", str(ROOT / 'data/gazebo_seg.yaml'), ParameterDescriptor(
             name="data_path", description="path to dataset.yaml"))
 
-        self.declare_parameter("image_topic", "/color/image_raw", ParameterDescriptor(
+        self.declare_parameter("image_topic", "/color/image_raw/compressed", ParameterDescriptor(
             name="image_topic", description="image topic"))
         
         self.declare_parameter("image_info_topic", "/color/camera_info", ParameterDescriptor(
             name="camera_info_topic", description="camera info topic"))
         
-        self.declare_parameter("depth_topic", "/depth_registered/image_rect", ParameterDescriptor(
+        self.declare_parameter("depth_topic", "/depth_registered/image_rect/compressed", ParameterDescriptor(
             name="depth_topic", description="depth image topic"))
         
         self.declare_parameter("depth_info_topic", "/depth_registered/camera_info", ParameterDescriptor(
@@ -110,20 +110,20 @@ class ObjSegmentation(Node):
         image_topic = self.get_parameter("image_topic").value
         depth_topic = self.get_parameter("depth_topic").value
 
-        self.image = Image()
-        self.depth = Image()
-        self.image_sub = self.create_subscription(Image, image_topic, self.image_callback, 10)
-        self.depth_sub = self.create_subscription(Image, depth_topic, self.depth_callback, 10)
+        self.image = CompressedImage()
+        self.depth = CompressedImage()
+        self.image_sub = self.create_subscription(CompressedImage, image_topic, self.image_callback, 10)
+        self.depth_sub = self.create_subscription(CompressedImage, depth_topic, self.depth_callback, 10)
         
         # ROS2 timer
         self.segmentation_freq = self.get_parameter("segmentation_freq").value
         self.timer = self.create_timer(1.0 / self.segmentation_freq, self.timer_callback)
 
 
-    def depth_callback(self, msg:Image):
+    def depth_callback(self, msg:CompressedImage):
         self.depth = msg
     
-    def image_callback(self, msg:Image):
+    def image_callback(self, msg:CompressedImage):
         self.image = msg
 
     def timer_callback(self):
@@ -146,8 +146,12 @@ class ObjSegmentation(Node):
             return
         
         # image preprocessing
-        dep = self.bridge.imgmsg_to_cv2(self.depth, desired_encoding= 'passthrough')
-        img = self.bridge.imgmsg_to_cv2(self.image, desired_encoding= 'passthrough') # HWC
+        # dep = self.bridge.imgmsg_to_cv2(self.depth, desired_encoding= 'passthrough')
+        # img = self.bridge.imgmsg_to_cv2(self.image, desired_encoding= 'passthrough') # HWC
+        img_np_arr = np.asarray(bytearray(self.image.data), dtype=np.uint8)
+        img = cv2.imdecode(img_np_arr, cv2.IMREAD_COLOR)
+        dep_np_arr = np.asarray(bytearray(self.depth.data), dtype=np.uint8)
+        dep = cv2.imdecode(dep_np_arr, cv2.IMREAD_ANYDEPTH)
         img0 = img.copy() # for visualization
         # Padded resize
         img = letterbox(img, new_shape=self.imgsz, stride=self.stride, auto=self.pt)[0]

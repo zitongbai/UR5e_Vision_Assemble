@@ -58,5 +58,23 @@
       <pose>0.7 0.5 1.1 0 0 0</pose>
     </include>
 
+    <include>
+      <name>red_box</name>
+      <uri>model://dual_ur5e_gripper_moveit_config/gazebo/red_box</uri>
+      <pose>0.66 0.1 1.1 0 0 -0.2</pose>
+    </include>
+
+    <include>
+      <name>blue_box</name>
+      <uri>model://dual_ur5e_gripper_moveit_config/gazebo/blue_box</uri>
+      <pose>0.66 0.1 1.5 0 0 -0.2</pose>
+    </include>
+
+    <include>
+      <name>turquoise_box</name>
+      <uri>model://dual_ur5e_gripper_moveit_config/gazebo/turquoise_box</uri>
+      <pose>0.77 -0.1 1.1 0 0 0</pose>
+    </include>
+
   </world>
 </sdf>

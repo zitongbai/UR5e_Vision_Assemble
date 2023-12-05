@@ -8,19 +8,24 @@ import cv2
 import os
 import time
 import numpy as np
-
+from rcl_interfaces.msg import ParameterDescriptor
 from pathlib import Path
 
 class Record(Node):
     def __init__(self):
         super().__init__('record')
+        self.get_logger().info("Record node started")
+
+        self.declare_parameter("init_cnt", 0, ParameterDescriptor(
+            name="init_cnt", description="initial count of images"))
 
         self.bridge = CvBridge()
         self.sub = self.create_subscription(Image, '/color/image_raw', self.image_callback, 10)
         self.image = Image()
 
         self.timer = self.create_timer(3.0, self.timer_callback)
-        self.cnt = 31
+        
+        self.cnt = self.get_parameter("init_cnt").value
 
     def image_callback(self, msg:Image):
         self.image = msg

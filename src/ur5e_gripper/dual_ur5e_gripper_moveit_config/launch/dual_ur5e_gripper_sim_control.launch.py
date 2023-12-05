@@ -54,7 +54,7 @@ def launch_setup(context, *args, **kwargs):
     launch_rviz = LaunchConfiguration("launch_rviz")
     gazebo_world_file = os.path.join(
         FindPackageShare(package='dual_ur5e_gripper_moveit_config').find('dual_ur5e_gripper_moveit_config'),
-        'gazebo','dual_ur5e.world'
+        'gazebo','sim_env.world'
     )
 
     rviz_config_file = PathJoinSubstitution(
@@ -129,11 +129,23 @@ def launch_setup(context, *args, **kwargs):
     #         [FindPackageShare("gazebo_ros"), "/launch", "/gazebo.launch.py"]
     #     ),
     # )
+    # gazebo = IncludeLaunchDescription(
+    #             PythonLaunchDescriptionSource([os.path.join(
+    #                 get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),
+    #             launch_arguments={
+    #                 "world": gazebo_world_file
+    #             }.items(),
+    #          )
+    
     gazebo = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),
-                launch_arguments={'world': gazebo_world_file}.items(),
-             )
+        PythonLaunchDescriptionSource(
+            [FindPackageShare("gazebo_ros"), "/launch", "/gazebo.launch.py"]
+        ),
+        launch_arguments={
+            "world": gazebo_world_file,
+        }.items(),
+    )
+
     # gazebo = ExecuteProcess(
     #     cmd=['gazebo', '--verbose', gazebo_world_file, '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so'], 
     #     output='screen',
@@ -205,7 +217,7 @@ def generate_launch_description():
         )
     )
     declared_arguments.append(
-        DeclareLaunchArgument("launch_rviz", default_value="true", description="Launch RViz?")
+        DeclareLaunchArgument("launch_rviz", default_value="false", description="Launch RViz?")
     )
 
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])
