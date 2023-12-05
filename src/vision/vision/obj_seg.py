@@ -7,7 +7,7 @@ from sensor_msgs.msg import CompressedImage
 from sensor_msgs.msg import CameraInfo
 from vision_msgs.msg import Detection2DArray, Detection2D, ObjectHypothesisWithPose
 import cv2
-from cv_bridge import CvBridge, CvBridgeError
+from cv_bridge import CvBridge
 import time
 import numpy as np
 from .wait_for_message import wait_for_message
@@ -53,7 +53,7 @@ class ObjSegmentation(Node):
         self.declare_parameter("image_info_topic", "/color/camera_info", ParameterDescriptor(
             name="camera_info_topic", description="camera info topic"))
         
-        self.declare_parameter("depth_topic", "/depth_registered/image_rect/compressed", ParameterDescriptor(
+        self.declare_parameter("depth_topic", "/depth_registered/image_rect/compressedDepth", ParameterDescriptor(
             name="depth_topic", description="depth image topic"))
         
         self.declare_parameter("depth_info_topic", "/depth_registered/camera_info", ParameterDescriptor(
@@ -146,12 +146,17 @@ class ObjSegmentation(Node):
             return
         
         # image preprocessing
-        # dep = self.bridge.imgmsg_to_cv2(self.depth, desired_encoding= 'passthrough')
-        # img = self.bridge.imgmsg_to_cv2(self.image, desired_encoding= 'passthrough') # HWC
-        img_np_arr = np.asarray(bytearray(self.image.data), dtype=np.uint8)
-        img = cv2.imdecode(img_np_arr, cv2.IMREAD_COLOR)
-        dep_np_arr = np.asarray(bytearray(self.depth.data), dtype=np.uint8)
-        dep = cv2.imdecode(dep_np_arr, cv2.IMREAD_ANYDEPTH)
+        # for color image, we can use cvbridge: 
+        img = self.bridge.compressed_imgmsg_to_cv2(self.image, desired_encoding='rgb8') # HWC
+        # but for depth image, we have to remove the first 12 bytes of header
+        # REF: https://stackoverflow.com/questions/41051998/ros-compresseddepth-to-numpy-or-cv2
+        # REF: https://robotics.stackexchange.com/questions/77192/decode-compresseddepth-message-from-compressed-depth-image-transport
+        dep_str = self.depth.data
+        dep_buf = np.ndarray(shape=(1, len(dep_str)), dtype=np.uint8, buffer=dep_str)
+        depth_header_size = 12
+        dep_buf = dep_buf[0, depth_header_size:] # remove header from raw data
+        dep = cv2.imdecode(dep_buf, cv2.IMREAD_UNCHANGED) # HWC, unit: mm
+
         img0 = img.copy() # for visualization
         # Padded resize
         img = letterbox(img, new_shape=self.imgsz, stride=self.stride, auto=self.pt)[0]
