@@ -184,7 +184,7 @@ int main(int argc, char** argv){
   }
 
   auto left_gripper_goal_msg = GripperCommand::Goal();
-  left_gripper_goal_msg.command.position = left_target_pose_list[0][6];
+  left_gripper_goal_msg.command.position = 0.38;
   left_gripper_goal_msg.command.max_effort = 1.0;
   if(!left_gripper_action_client->wait_for_action_server(std::chrono::seconds(10))){
     RCLCPP_ERROR(LOGGER, "Action server not available after waiting");

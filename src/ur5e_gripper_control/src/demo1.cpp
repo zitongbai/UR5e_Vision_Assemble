@@ -8,7 +8,6 @@
 #include <moveit_msgs/msg/display_trajectory.hpp>
 #include <moveit_msgs/msg/attached_collision_object.hpp>
 #include <moveit_msgs/msg/collision_object.hpp>
-
 #include <tf2/LinearMath/Quaternion.h>
 
 #include <control_msgs/action/gripper_command.hpp>

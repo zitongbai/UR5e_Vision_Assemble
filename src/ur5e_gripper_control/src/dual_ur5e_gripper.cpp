@@ -51,6 +51,10 @@ DualUR5eGripper::DualUR5eGripper(const rclcpp::NodeOptions & options)
     collision_objects.push_back(collision_table);
     RCLCPP_INFO(this->get_logger(), "Add an object into the world");
     planning_scene_interface_.addCollisionObjects(collision_objects);
+
+    tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
+    tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+    RCLCPP_INFO(this->get_logger(), "Create Tf buffer and listener");
 }
 
 
@@ -117,7 +121,7 @@ void DualUR5eGripper::get_joint_target_positions(moveit::planning_interface::Mov
             const std::string & reference_frame, 
             std::vector<double> & joint_target_positions){
     // assert that the target pose has 6 elements
-    assert(target_pose.size() == 7);
+    assert(target_pose.size() == 6); // x, y, z, roll, pitch, yaw
     // set the target pose
     tf2::Quaternion quat;
     quat.setRPY(target_pose[3], target_pose[4], target_pose[5]);
@@ -144,12 +148,12 @@ bool DualUR5eGripper::plan_and_execute(const std::vector<double> & left_target_p
         const std::vector<double> & right_target_pose){
     // calculate the target in joint space
     std::vector<double> left_joint_target_positions, right_joint_target_positions;
-    if(left_target_pose.size() != 7){ // x, y, z, roll, pitch, yaw, grasp
+    if(left_target_pose.size() != 6){ // x, y, z, roll, pitch, yaw
         left_joint_target_positions = left_move_group_->getCurrentJointValues();
     } else {
         get_joint_target_positions(left_move_group_, left_target_pose, "left_base_link", left_joint_target_positions);
     }
-    if(right_target_pose.size() != 7){
+    if(right_target_pose.size() != 6){
         right_joint_target_positions = right_move_group_->getCurrentJointValues();
     } else {
         get_joint_target_positions(right_move_group_, right_target_pose, "right_base_link", right_joint_target_positions);
@@ -195,4 +199,26 @@ bool DualUR5eGripper::left_grasp(double gripper_position){
 
 bool DualUR5eGripper::right_grasp(double gripper_position){
     return grasp(false, gripper_position);
+}
+
+
+void DualUR5eGripper::get_cube_pose(
+    const std::string & from_frame, 
+    const std::string & to_frame, 
+    std::vector<double> & cube_pose){
+  cube_pose.clear();
+  geometry_msgs::msg::TransformStamped tf_msg;
+  try{
+    tf_msg = tf_buffer_->lookupTransform(to_frame, from_frame, tf2::TimePointZero);
+  } catch (tf2::TransformException &ex) {
+    RCLCPP_ERROR(this->get_logger(), "%s", ex.what());
+    rclcpp::shutdown();
+    return;
+  }
+  cube_pose.push_back(tf_msg.transform.translation.x);
+  cube_pose.push_back(tf_msg.transform.translation.y);
+  cube_pose.push_back(tf_msg.transform.translation.z);
+  cube_pose.push_back(0);
+  cube_pose.push_back(0);
+  cube_pose.push_back(0);
 }

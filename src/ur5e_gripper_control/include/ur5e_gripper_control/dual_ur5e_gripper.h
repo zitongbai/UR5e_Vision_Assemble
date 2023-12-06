@@ -11,10 +11,10 @@
 #include <moveit_msgs/msg/display_trajectory.hpp>
 #include <moveit_msgs/msg/attached_collision_object.hpp>
 #include <moveit_msgs/msg/collision_object.hpp>
-
-#include <tf2/LinearMath/Quaternion.h>
 #include <control_msgs/action/gripper_command.hpp>
-
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2_ros/buffer.h>
+#include <tf2_ros/transform_listener.h>
 
 class DualUR5eGripper : public rclcpp::Node{
 public:
@@ -32,6 +32,10 @@ public:
     void get_target_pose_list(std::vector<std::vector<double>> & left_target_pose_list, 
         std::vector<std::vector<double>> & right_target_pose_list);
 
+    void get_cube_pose(
+        const std::string & from_frame, 
+        const std::string & to_frame, 
+        std::vector<double> & cube_pose);
 
 private:
     std::vector<std::string> left_target_pose_str_list_;
@@ -67,6 +71,9 @@ private:
                 std::vector<double> & joint_target_positions);
 
     bool grasp(bool left, double gripper_position);
+
+    std::shared_ptr<tf2_ros::TransformListener> tf_listener_{nullptr};
+    std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
 };
 
 #endif
