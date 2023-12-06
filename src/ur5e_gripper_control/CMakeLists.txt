@@ -1,9 +1,14 @@
 cmake_minimum_required(VERSION 3.8)
 project(ur5e_gripper_control)
 
+# use cpp 17
+set(CMAKE_CXX_STANDARD 17)
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
+
+include_directories(include)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
@@ -45,7 +50,12 @@ ament_target_dependencies(demo3
   rclcpp moveit_ros_planning_interface tf2 
   moveit_core moveit_ros_planning control_msgs)
 
-install(TARGETS test_moveit test_dual move_group demo1 demo2 demo3
+add_executable(demo4 src/demo4.cpp src/dual_ur5e_gripper.cpp)
+ament_target_dependencies(demo4
+  rclcpp moveit_ros_planning_interface tf2 
+  moveit_core moveit_ros_planning control_msgs)
+
+install(TARGETS test_moveit test_dual move_group demo1 demo2 demo3 demo4
   DESTINATION lib/${PROJECT_NAME}
 )
 
