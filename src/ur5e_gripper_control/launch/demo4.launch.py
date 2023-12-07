@@ -17,7 +17,7 @@ def generate_launch_description():
     left_target_pose_list = os.path.join(
         get_package_share_directory('ur5e_gripper_control'),
         'config', 
-        'target_pose_list.yaml'
+        'pyramid_pose_list.yaml'
     )
 
     return LaunchDescription([

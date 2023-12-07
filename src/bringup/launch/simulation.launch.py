@@ -34,10 +34,17 @@ def launch_setup(context, *args, **kwargs):
         ),
     )
 
+    vision_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [FindPackageShare("vision"), "/launch", "/seg_and_det.launch.py"]
+        ),
+    )
+
     nodes_to_launch = [
         dual_ur5e_gripper_control_launch,
         dual_ur5e_gripper_moveit_launch,
         register_depth_launch,
+        vision_launch,
     ]
 
     return nodes_to_launch
