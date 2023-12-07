@@ -22,6 +22,7 @@ public:
     using GoalHandleGripperCommand = rclcpp_action::ClientGoalHandle<GripperCommand>;
     
     explicit DualUR5eGripper(const rclcpp::NodeOptions & options = rclcpp::NodeOptions());
+    void init();
     
     bool plan_and_execute(const std::vector<double> & left_target_pose, 
         const std::vector<double> & right_target_pose);

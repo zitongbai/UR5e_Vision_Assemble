@@ -20,11 +20,12 @@ class DetTF(Node):
     def det_callback(self, msg:Detection2DArray):
         cls_name = 'cube'
         objs = {}
-
+        cnt = 1
         for i, det in enumerate(msg.detections):
             det:Detection2D
             if det.id == cls_name:
-                objs[cls_name+str(i)] = det.results[0].pose.pose.position
+                objs[cls_name+str(cnt)] = det.results[0].pose.pose.position
+                cnt += 1
         
         for name, pos in objs.items():
             pos:Point

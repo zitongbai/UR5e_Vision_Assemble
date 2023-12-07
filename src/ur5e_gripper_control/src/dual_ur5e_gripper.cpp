@@ -22,41 +22,48 @@ DualUR5eGripper::DualUR5eGripper(const rclcpp::NodeOptions & options)
     send_goal_options_.feedback_callback = std::bind(&DualUR5eGripper::feedback_callback, this, std::placeholders::_1, std::placeholders::_2);
     send_goal_options_.result_callback = std::bind(&DualUR5eGripper::result_callback, this, std::placeholders::_1);
 
-    /*create move group interface*/
-    both_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(std::shared_ptr<rclcpp::Node>(std::move(this)), BOTH_PLANNING_GROUP);
-    left_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(std::shared_ptr<rclcpp::Node>(std::move(this)), LEFT_PLANNING_GROUP);
-    right_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(std::shared_ptr<rclcpp::Node>(std::move(this)), RIGHT_PLANNING_GROUP);
-    RCLCPP_INFO(this->get_logger(), "Reference frame: %s", both_move_group_->getPlanningFrame().c_str());
-
-    /* add collision objects */
-    moveit_msgs::msg::CollisionObject collision_table;
-    collision_table.header.frame_id = both_move_group_->getPlanningFrame();
-    collision_table.id = "table";
-    // define box to add to the world
-    shape_msgs::msg::SolidPrimitive primitive;
-    primitive.type = primitive.BOX;
-    primitive.dimensions.resize(3);
-    primitive.dimensions[primitive.BOX_X] = 1.0;
-    primitive.dimensions[primitive.BOX_Y] = 1.5;
-    primitive.dimensions[primitive.BOX_Z] = 1.0;
-    geometry_msgs::msg::Pose box_pose;
-    box_pose.orientation.w = 1.0;
-    box_pose.position.x = 0.5;
-    box_pose.position.y = 0.0;
-    box_pose.position.z = 0.5;
-    collision_table.primitives.push_back(primitive);
-    collision_table.primitive_poses.push_back(box_pose);
-    collision_table.operation = collision_table.ADD;
-    std::vector<moveit_msgs::msg::CollisionObject> collision_objects;
-    collision_objects.push_back(collision_table);
-    RCLCPP_INFO(this->get_logger(), "Add an object into the world");
-    planning_scene_interface_.addCollisionObjects(collision_objects);
-
     tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
     tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
     RCLCPP_INFO(this->get_logger(), "Create Tf buffer and listener");
 }
 
+/**
+ * @brief initialize the move group interface
+ *  MoveGroupInterface needs the shared point of the Node, but shared_ptr won't be created until after the constructor returns
+ *  so we need to create the move group interface in a separate function
+ * @ref https://robotics.stackexchange.com/questions/96027/getting-a-nodesharedptr-from-this
+ */
+void DualUR5eGripper::init(){
+  /*create move group interface*/
+  both_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(shared_from_this(), BOTH_PLANNING_GROUP);
+  left_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(shared_from_this(), LEFT_PLANNING_GROUP);
+  right_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(shared_from_this(), RIGHT_PLANNING_GROUP);
+  RCLCPP_INFO(this->get_logger(), "Reference frame: %s", both_move_group_->getPlanningFrame().c_str());
+
+  /* add collision objects */
+  moveit_msgs::msg::CollisionObject collision_table;
+  collision_table.header.frame_id = both_move_group_->getPlanningFrame();
+  collision_table.id = "table";
+  // define box to add to the world
+  shape_msgs::msg::SolidPrimitive primitive;
+  primitive.type = primitive.BOX;
+  primitive.dimensions.resize(3);
+  primitive.dimensions[primitive.BOX_X] = 1.0;
+  primitive.dimensions[primitive.BOX_Y] = 1.5;
+  primitive.dimensions[primitive.BOX_Z] = 1.0;
+  geometry_msgs::msg::Pose box_pose;
+  box_pose.orientation.w = 1.0;
+  box_pose.position.x = 0.5;
+  box_pose.position.y = 0.0;
+  box_pose.position.z = 0.5;
+  collision_table.primitives.push_back(primitive);
+  collision_table.primitive_poses.push_back(box_pose);
+  collision_table.operation = collision_table.ADD;
+  std::vector<moveit_msgs::msg::CollisionObject> collision_objects;
+  collision_objects.push_back(collision_table);
+  RCLCPP_INFO(this->get_logger(), "Add an object into the world");
+  planning_scene_interface_.addCollisionObjects(collision_objects);
+}
 
 void DualUR5eGripper::goal_response_callback(const GoalHandleGripperCommand::SharedPtr & goal_handle){
   if(!goal_handle){
@@ -209,7 +216,7 @@ void DualUR5eGripper::get_cube_pose(
   cube_pose.clear();
   geometry_msgs::msg::TransformStamped tf_msg;
   try{
-    tf_msg = tf_buffer_->lookupTransform(to_frame, from_frame, tf2::TimePointZero);
+    tf_msg = tf_buffer_->lookupTransform(from_frame, to_frame, tf2::TimePointZero);
   } catch (tf2::TransformException &ex) {
     RCLCPP_ERROR(this->get_logger(), "%s", ex.what());
     rclcpp::shutdown();

@@ -20,6 +20,7 @@ int main(int argc, char ** argv){
   rclcpp::NodeOptions node_options;
   node_options.automatically_declare_parameters_from_overrides(true);
   auto node = std::make_shared<DualUR5eGripper>(node_options);
+  node->init();
   
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
@@ -31,15 +32,18 @@ int main(int argc, char ** argv){
   std::string from_frame_left = "left_base_link";
   std::string from_frame_right = "right_base_link";
   std::vector<std::string> to_frame_list = {
-    "right_base_link", "cube2", "cube3", "cube4", "cube5", "cube6", 
+    "cube1", "cube2", "cube3", "cube4", "cube5", "cube6", 
   };
   std::vector<std::vector<double>> cube_pose_list;
   cube_pose_list.resize(to_frame_list.size());
 
-  node->get_cube_pose(from_frame_left, to_frame_list[0], cube_pose_list[0]);
-  // print the cube pose
-  for (size_t i = 0; i < cube_pose_list[0].size(); i++){
-    std::cout << cube_pose_list[0][i] << " ";
+  for(size_t i = 0; i < to_frame_list.size(); i++){
+    node->get_cube_pose(from_frame_left, to_frame_list[i], cube_pose_list[i]);
+    std::cout << to_frame_list[i] << ": ";
+    for(size_t j = 0; j < cube_pose_list[i].size(); j++){
+      std::cout << cube_pose_list[i][j] << " ";
+    }
+    std::cout << std::endl;
   }
 
 
