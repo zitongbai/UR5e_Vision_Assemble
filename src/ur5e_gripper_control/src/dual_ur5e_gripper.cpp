@@ -188,7 +188,7 @@ bool DualUR5eGripper::plan_and_execute(const std::vector<double> & left_target_p
 bool DualUR5eGripper::grasp(bool left, double gripper_position){
     auto gripper_goal_msg = GripperCommand::Goal();
     gripper_goal_msg.command.position = gripper_position;
-    gripper_goal_msg.command.max_effort = 1.0;
+    gripper_goal_msg.command.max_effort = -1.0; // do not limit the effort
 
     auto gripper_action_client = left ? left_gripper_action_client_ : right_gripper_action_client_;
     if(!gripper_action_client->wait_for_action_server(std::chrono::seconds(10))){
@@ -228,4 +228,11 @@ void DualUR5eGripper::get_cube_pose(
   cube_pose.push_back(0);
   cube_pose.push_back(0);
   cube_pose.push_back(0);
+}
+
+void DualUR5eGripper::go_to_ready_position(bool left){
+  moveit::planning_interface::MoveGroupInterfacePtr move_group = left ? left_move_group_ : right_move_group_;
+  std::string group_state = left ? "left_ready" : "right_ready";
+  move_group->setNamedTarget(group_state);
+  move_group->move();
 }

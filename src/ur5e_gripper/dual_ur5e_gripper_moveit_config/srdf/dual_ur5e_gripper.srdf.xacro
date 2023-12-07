@@ -14,6 +14,23 @@
         <group name="right_ur_manipulator"/>
     </group>
 
+    <group_state name="left_ready" group="left_ur_manipulator">
+        <joint name="left_elbow_joint" value="1.5707" />
+        <joint name="left_shoulder_lift_joint" value="-1.5707" />
+        <joint name="left_shoulder_pan_joint" value="0" />
+        <joint name="left_wrist_1_joint" value="-1.5707" />
+        <joint name="left_wrist_2_joint" value="-1.5707" />
+        <joint name="left_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="right_home" group="right_ur_manipulator">
+        <joint name="right_elbow_joint" value="1.5707" />
+        <joint name="right_shoulder_lift_joint" value="-1.5707" />
+        <joint name="right_shoulder_pan_joint" value="0" />
+        <joint name="right_wrist_1_joint" value="-1.5707" />
+        <joint name="right_wrist_2_joint" value="-1.5707" />
+        <joint name="right_wrist_3_joint" value="0" />
+      </group_state>
+
     <disable_collisions link1="left_robotiq_85_base_link" link2="left_wrist_1_link" reason="Never"/>
     <disable_collisions link1="left_robotiq_85_base_link" link2="left_wrist_2_link" reason="Never"/>
     <disable_collisions link1="left_robotiq_85_base_link" link2="left_wrist_3_link" reason="Adjacent"/>

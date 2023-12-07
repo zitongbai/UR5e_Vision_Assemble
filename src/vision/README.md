@@ -37,7 +37,7 @@ conda activate torch
 Then train the model.
 
 ```shell
-python segment/train.py --img 640 --batch 8 --epochs 100 --data gazebo_seg.yaml --weights yolov5s-seg.pt --cache
+python segment/train.py --img 960 --batch 8 --epochs 300 --data gazebo_seg.yaml --weights yolov5s-seg.pt --cache
 ```
 
 the datasets and weights will be downloaded automatically. 

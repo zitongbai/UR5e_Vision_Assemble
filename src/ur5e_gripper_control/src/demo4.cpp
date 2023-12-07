@@ -42,67 +42,43 @@ int main(int argc, char ** argv){
     double y = cube_pose[1]; // cube position y relative to world frame
     if(y > 0){
       node->get_cube_pose(from_frame_left, to_frame_list[i], cube_pose);
-      cube_pose[0] -= 0.02; // modify x a little bit for grasp
-      cube_pose[2] += 0.12; // modify z a little bit for grasp
+      cube_pose[0] -= 0.025; // modify x a little bit for grasp
+      cube_pose[1] = 0.0;
+      cube_pose[2] += 0.14; // modify z a little bit for grasp
       cube_pose[3] = 0.0; // roll
       cube_pose[4] = M_PI; // pitch
-      cube_pose[5] = M_PI_2; // yaw
+      cube_pose[5] = 0.0; // yaw
       left_cube_pose_list.push_back(cube_pose);
     } else {
       node->get_cube_pose(from_frame_right, to_frame_list[i], cube_pose);
-      cube_pose[0] -= 0.02; // modify x a little bit for grasp
-      cube_pose[2] += 0.12; // modify z a little bit for grasp
+      cube_pose[0] -= 0.025; // modify x a little bit for grasp
+      cube_pose[1] = 0.0; 
+      cube_pose[2] += 0.14; // modify z a little bit for grasp
       cube_pose[3] = 0.0; // roll
       cube_pose[4] = M_PI; // pitch
-      cube_pose[5] = M_PI_2; // yaw
+      cube_pose[5] = 0.0; // yaw
       right_cube_pose_list.push_back(cube_pose);
     }
   }
-
-  node->plan_and_execute(left_cube_pose_list[0], right_cube_pose_list[0]);
-
-  node->left_grasp(0.38);
-  node->right_grasp(0.38);
-  // sleep for 1 sec
-  rclcpp::sleep_for(std::chrono::seconds(1));
-
   std::vector<double> do_nothing;
-  node->plan_and_execute(left_target_pose_list[0], do_nothing);
-  node->plan_and_execute(left_cube_pose_list[1], do_nothing);
-  node->plan_and_execute(do_nothing, right_target_pose_list[0]);
+  // there are 3 cubes on both sides
+  for(size_t i=0; i<3; i++){
+    // first go to the cube position and grasp
+    node->plan_and_execute(left_cube_pose_list[i], right_cube_pose_list[i]);
+    node->left_grasp(0.38);
+    node->right_grasp(0.38);
+    rclcpp::sleep_for(std::chrono::seconds(1));
 
-
-
-  // std::vector<std::vector<double>> cube_pose_list;
-  // cube_pose_list.resize(to_frame_list.size());
-
-  // for(size_t i = 0; i < to_frame_list.size(); i++){
-  //   node->get_cube_pose(from_frame_left, to_frame_list[i], cube_pose_list[i]);
-  //   std::cout << to_frame_list[i] << ": ";
-  //   for(size_t j = 0; j < cube_pose_list[i].size(); j++){
-  //     std::cout << cube_pose_list[i][j] << " ";
-  //   }
-  //   std::cout << std::endl;
-  // }
-
-  
-
-
-
-  // for (size_t i = 0; i < left_target_pose_list.size(); i++){
-  //   for (size_t j = 0; j<left_target_pose_list[i].size(); j++){
-  //     std::cout << left_target_pose_list[i][j] << " ";
-  //   }
-  //   std::cout << std::endl;
-    
-  //   auto begin_left = left_target_pose_list[i].begin();
-  //   auto end_left = left_target_pose_list[i].begin()+6;
-  //   std::vector<double> left_target_pose(begin_left, end_left);
-  //   auto begin_right = right_target_pose_list[i].begin();
-  //   auto end_right = right_target_pose_list[i].begin()+6;
-  //   std::vector<double> right_target_pose(begin_right, end_right);
-  //   node->plan_and_execute(left_target_pose, right_target_pose);
-  // }
+    // then go to the target position and release
+    node->plan_and_execute(left_target_pose_list[i], do_nothing);
+    node->left_grasp(0.0); // release
+    rclcpp::sleep_for(std::chrono::seconds(1));
+    node->go_to_ready_position(true);
+    node->plan_and_execute(do_nothing, right_target_pose_list[i]);
+    node->right_grasp(0.0); // release
+    rclcpp::sleep_for(std::chrono::seconds(1));
+  }
+  node->go_to_ready_position(false);
 
   rclcpp::shutdown();
   return 0;

@@ -62,11 +62,11 @@
                 <gripper_link>right_robotiq_85_right_inner_knuckle_link</gripper_link>
             </arm>
             <forces_angle_tolerance>150</forces_angle_tolerance>
-            <update_rate>50</update_rate>
-            <grip_count_threshold>2</grip_count_threshold>
-            <max_grip_count>8</max_grip_count>
-            <release_tolerance>0.05</release_tolerance>
-            <disable_collisions_on_attach>true</disable_collisions_on_attach>
+            <update_rate>30</update_rate>
+            <grip_count_threshold>1</grip_count_threshold>
+            <max_grip_count>2</max_grip_count>
+            <release_tolerance>0.01</release_tolerance>
+            <disable_collisions_on_attach>false</disable_collisions_on_attach>
             <contact_topic>__default_topic__</contact_topic>
          </plugin>
      </gazebo>

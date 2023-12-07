@@ -38,6 +38,8 @@ public:
         const std::string & to_frame, 
         std::vector<double> & cube_pose);
 
+    void go_to_ready_position(bool left);
+
 private:
     std::vector<std::string> left_target_pose_str_list_;
     std::vector<std::string> right_target_pose_str_list_;
