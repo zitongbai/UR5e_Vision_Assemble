@@ -53,6 +53,11 @@ You can refer to the [README.md](https://github.com/zitongbai/UR5e_Vision_Assemb
 
 You should not only set up the conda environment, but also train the yolov5 and move the weight files for later usage. 
 
+Under the original python environment, you should upgrade the numpy version
+```bash
+pip install -U numpy
+```
+
 ## Build
 
 Build the repo
