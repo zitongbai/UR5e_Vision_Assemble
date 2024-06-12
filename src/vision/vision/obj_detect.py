@@ -17,7 +17,7 @@ import os
 import sys
 from pathlib import Path
 # add conda env path
-sys.path.append(str(Path.home()) + '/anaconda3/envs/torch/lib/python3.10/site-packages')
+sys.path.append(str(Path.home()) + '/miniforge3/envs/yolo/lib/python3.10/site-packages')
 
 # yolov5 import
 FILE = Path(__file__).resolve()

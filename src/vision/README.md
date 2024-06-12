@@ -2,36 +2,31 @@ This package is used for object detection and segmentation
 
 # Dependences
 
-* yolov5 and its dependences
-* vision_msgs
-
-Make sure you have installed all the dependences of yolov5 in your python env (e.g. conda env containing torch).
-```shell
-# in yolov5 path
+First, create a conda env for yolov5 (we recommend python 3.10), e.g.
+```bash
+conda create -n yolo python=3.10
+conda activate yolo
+```
+Then, in the folder of yolov5, install the requirements:
+```bash
+# in yolov5 path, e.g. src/vision/vision/yolov5
 pip install -r requirements.txt
 ```
 
-Install `vision_msgs`: 
-```shell
-sudo apt update
-sudo apt install ros-humble-vision-msgs
-```
-
-In order to use both python modules in ROS2 and those in conda env, you should change the conda env path mannully in the file `obj_seg.py`, `obj_detect.py`, etc. 
+In order to use both python modules in ROS2 and those in conda env, you should change the conda env path mannully in the file `src/vision/vision/obj_seg.py`, `src/vision/vision/obj_detect.py`, etc. 
 ```python
-sys.path.append(str(Path.home()) + '/anaconda3/envs/torch/lib/python3.10/site-packages')
+# you should change the path here according to your conda env
+sys.path.append(str(Path.home()) + '/miniforge3/envs/yolo/lib/python3.10/site-packages')
 ```
 
-# Usage
-
-## Train
+# Train the network
 
 Go to the path of yolov5
 
-remember to change to the proper python env which contains `torch`, etc.
-
-```shell
-conda activate torch
+```bash
+# make sure you have activated the conda env. 
+# otherwise:
+conda activate yolo
 ```
 
 Then train the model.
@@ -45,11 +40,5 @@ the datasets and weights will be downloaded automatically.
 * datasets in `vision/datasets`
 * weights in `yolov5/yolov5s-seg.pt`
 
-copy the training result (weights) from `yolov5/runs/exp*/best.pt` to `yolov5`
+Remember to copy the training result (weights) from `yolov5/runs/exp*/weights/best.pt` to `yolov5`
 
-now if the gazebo simulation is running, then you can run the segmentation script: 
-```shell
-ros2 run vision obj_seg
-```
-
-<img src="./detect%20result.png" width = "500" alt="detect"/>
