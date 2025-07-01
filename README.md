@@ -1,6 +1,10 @@
 # UR5_Vision_Assemble
 Use ROS2 and Gazebo to simulate 2 UR5 assembling objects. 
 
+> ⚠️ **Notice:** This repository is no longer actively maintained.  
+> While you are welcome to explore and use the code, please note that updates and issue responses may be infrequent.  
+> Thank you for your interest and understanding.
+
 # Environment
 
 * Ubuntu 22.04
